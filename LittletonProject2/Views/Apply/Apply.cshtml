@@ -3,21 +3,94 @@
 }
 @Scripts.Render("~/Scripts/knockout.js")
 @Scripts.Render("~/Scripts/tabcontent.js")
+@Scripts.Render("~/ViewModels/ApplyViewModel.js")
+@Scripts.Render("~/ViewControllers/Apply.js")
 @Styles.Render("~/Content/tabcontent.css")
+@Styles.Render("~/Content/Apply.css")
 
 <ul class="tabs">
-    <li><a href="#view1">Features</a></li>
-    <li><a href="#view2">How to Use</a></li>
-    <li><a href="#view3">Source Code</a></li>
+    <li><a href="#view1">Personal Info</a></li>
+    <li><a href="#view2">Employment Info</a></li>
+    <li><a href="#view3">Work Experience</a></li>
+    <li><a href="#view4">Education</a></li>
 </ul>
 <div class="tabcontents">
+    <!-- Personal Info -->
     <div id="view1">
-        content 1
+        <div class="contianer-fluid center">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="col-xs-2">
+                    <label for="over18">Over 18?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="text" id="firstName" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="lastName" />
+                </div>
+                <div class="col-xs-2">
+                    <input type="checkbox" id="over18" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="streetAddress">Street Address</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="City">City</label>
+                </div>
+                <div class="col-xs-2">
+                    <label for="State">State</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="text" id="streetAddress" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="City" />
+                </div>
+                <div class="col-xs-2">
+                    <select id="State" data-bind="value: listOfStates"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="mobilePhone">Mobile Phone</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="homePhone">Home Phone</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="text" id="mobilePhone" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="homePhone" />
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Employment Info -->
     <div id="view2">
         content 2
     </div>
+    <!-- Work Experience -->
     <div id="view3">
         content 3
     </div>
+    <!-- Education -->
+    <div id="view4">
+        content 4
+    </div>
 </div>
+<input type="button" id="submit" value="Submit" />
