@@ -5,7 +5,7 @@ namespace LittletonProject2.Controllers
 {
     public class ApplyController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Apply()
         {
             return View();
         }
