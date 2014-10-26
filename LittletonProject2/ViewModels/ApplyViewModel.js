@@ -1,5 +1,5 @@
 ﻿var ApplyViewModel = function () {
-    this.listOfStates = ko.observableArray();
+    this.listOfStates = ko.observableArray([]);
 }
 
 ApplyViewModel.prototype.getStates = function () {
@@ -9,7 +9,6 @@ ApplyViewModel.prototype.getStates = function () {
         url: '/Apply/GetStates',
         dataType: "JSON",
         success: function (data) {
-            console.log(data);
             self.listOfStates(data);
         },
         error: function (data) {
