@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Scripts.Render("~/Scripts/jquery-ui.min-1.11.1.js")
 @Scripts.Render("~/Scripts/knockout.js")
 @Scripts.Render("~/Scripts/tabcontent.js")
 @Scripts.Render("~/ViewModels/ApplyViewModel.js")
@@ -84,18 +85,97 @@
     <div id="view2">
         <div class="container-fluid center">
             <div class="row">
-                <div class="col-xs-2">
-                    <label for="gender">Gender</label>
-                </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <label for="daysAvailable">Days Available</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <label for="employmentDesired">Employment Desired</label>
                 </div>
+                <div class="col-xs-3">
+                    <label for="hoursWeekly">Hours Available Per Week</label>
+                </div>
             </div>
-        </div>   
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <input type="checkbox" id="allDays" />
+                    <label for="allDays">All</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="checkbox" id="monday" />
+                    <label for="monday">Mon</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="checkbox" id="tuesday" />
+                    <label for="tuesday">Tue</label>
+                </div>
+                <div class="col-xs-3">
+                    <input type="checkbox" id="fullTime" />
+                    <label for="fullTime">FullTime</label>
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="hoursPerWeek" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <input type="checkbox" id="wednesday"/>
+                    <label for="wednesday">Wed</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="checkbox" id="thursday"/>
+                    <label for="thursday">Thu</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="checkbox" id="friday"/>
+                    <label for="friday">Fri</label>
+                </div>
+                <div class="col-xs-3">
+                    <input type="checkbox" id="partTime" />
+                    <label for="partTime">PartTime</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <input type="checkbox" id="saturday"/>
+                    <label for="saturday">Sat</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="checkbox" id="sunday"/>
+                    <label for="sunday">Sun</label>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="workNight">Can You Work Nights</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="dateAvailable">Date Available</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="beenFired">Fired From A Job</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <input type="checkbox" id="workNightYes" />
+                    <label for="workNightYes">Yes</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <input type="checkbox" id="workNightNo" />
+                    <label for="workNightNo">No</label>
+                </div>
+            </div>
+
+        </div>
     </div>
+          
     <!-- Work Experience -->
     <div id="view3">
         content 3
