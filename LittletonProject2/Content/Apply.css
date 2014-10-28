@@ -1,6 +1,8 @@
 ﻿.center
 {
     text-align: center;
+    width: 60%;
+    margin-left: 20%;
 }
 .hidden
 {
@@ -9,4 +11,9 @@
 .modal-body label
 {
     color: white;
+}
+.submitButton
+{
+    margin-bottom: 4px;
+    margin-left: 15px;
 }

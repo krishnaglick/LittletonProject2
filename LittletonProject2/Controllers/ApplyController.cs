@@ -17,5 +17,11 @@ namespace LittletonProject2.Controllers
         {
             return Json(StateArray.Abbreviations(), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult getMilitaryBranches()
+        {
+            return Json(MilitaryBranches.GetMilitaryBranches(), JsonRequestBehavior.AllowGet);
+        }
     }
 }

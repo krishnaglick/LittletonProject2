@@ -18,11 +18,12 @@
     <li><a href="#view3">Work Experience</a></li>
     <li><a href="#view4">References</a></li>
     <li><a href="#view5">Education</a></li>
+    <li><input type="button" id="submit" value="Submit" class="btn btn-primary btn-sm submitButton" /></li>
 </ul>
 <div class="tabcontents">
     <!-- Personal Info -->
     <div id="view1">
-        <div class="contianer-fluid center">
+        <div class="contianer-fluid">
             <div class="row">
                 <div class="col-xs-3">
                     <label for="firstName">First Name</label>
@@ -91,48 +92,35 @@
     </div>
     <!-- Work Experience -->
     <div id="view3">
-        <div class="contianer-fluid center">
+        <div class="contianer-fluid">
             <div class="row">
-                <div class="col-xs-2">
-                    <label for="workExpArea">Work Experience</label>
+                <div class="col-xs-4">
                 </div>
                 <div class="col-xs-2">
-                    <input type="button" id="addWorkExp" value="Add Employer" />
+                    <input type="button" id="addWorkExp" value="Add Employer" class="btn btn-primary" />
+                </div>
+                <div>
+                    <input type="button" id="addMilitaryExp" value="Add Military Record" class="btn btn-primary" />
                 </div>
             </div>
-
-            <input type="text" id="yearsInMilitary" />
-            <input type="text" id="militaryBranch" />
-            <input type="checkbox" id="militaryService" />
         </div>
     </div>
     <!-- References -->
     <div id="view4">
-        <div class="row">
-            <div class="col-xs-2">
-                <label for="workExpArea">References</label>
+        <div class="contianer-fluid">
+            <div class="row">
+                <div class="col-xs-5">
+                </div>
+                <div>
+                    <input type="button" id="addReference" value="Add Reference" class="btn btn-primary" />
+                </div>
             </div>
-            <div class="col-xs-2">
-                <input type="button" id="addReference" value="Add Reference" />
-            </div>
-        </div>
-        <div id="employeeReferencesArea" class="row hidden">
-            <input type="text" class="referenceName" />
-            <input type="text" class="referenceTitle" />
-            <input type="text" class="referenceCompany" />
-            <input type="text" class="referenceStreetAddress" />
-            <input type="text" class="referenceCity" />
-            <select class="referenceState" data-bind="options: listOfStates"></select>
-            <input type="text" class="referencePhone" />
-            <input type="text" class="referenceEmail" />
         </div>
     </div>
     <!-- Education -->
     <div id="view5">
     </div>
 </div>
-<input type="button" id="submit" value="Submit" />
-
 
 <!-- Add Work Exp Modal -->
 <div id="addWorkExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -142,7 +130,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
             <div class="modal-body">
-                <div class="contianer-fluid center">
+                <div class="contianer-fluid">
                     <div class="row">
                         <div class="col-xs-4">
                             <label>Employer Name</label>
@@ -237,6 +225,128 @@
             </div>
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="saveWorkExp">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Military Exp Modal -->
+<div id="addMilitaryExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="model-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+            </div>
+            <div class="modal-body">
+                <div class="contianer-fluid">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="yearsInMilitary">Years In Military</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="militaryBranch">Branch of Military</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="inReserve">Reserve?</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="number" id="yearsInMilitary" min="1" max="100" />
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="militaryBranch" data-bind="options: militaryBranches"></select>
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="checkbox" id="inReserve" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="saveWorkExp">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Reference Modal -->
+<div id="addReferenceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="model-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+            </div>
+            <div class="modal-body">
+                <div class="contianer-fluid">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="referenceName">Reference Name</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="referenceTitle">Reference Title</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="referenceCompany">Reference Company</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceName" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceTitle" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceCompany" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="referenceStreetAddress">Company Street</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="referenceCity">Company City</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="referenceState">Company State</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceStreetAddress" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceCity" />
+                        </div>
+                        <div class="col-xs-4">
+                            <select class="referenceState" data-bind="options: listOfStates"></select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="referencePhone">Reference Phone</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="referenceEmail">Reference Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" id="referencePhone" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="referenceEmail" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn" data-dismiss="modal" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
         </div>
