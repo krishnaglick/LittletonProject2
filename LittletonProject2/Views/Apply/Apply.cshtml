@@ -8,11 +8,13 @@
 @Scripts.Render("~/ViewControllers/Apply.js")
 @Styles.Render("~/Content/tabcontent.css")
 @Styles.Render("~/Content/Apply.css")
+@Styles.Render("~/Content/datepicker.css")
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script>
     $(function () {
-        $("#datepicker").datepicker();
+        $('#datepicker').datepicker({
+            inline: true,            showOtherMonths: true,            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],        });
     });
 </script>
 <script>
@@ -191,7 +193,7 @@
                     <input type="button" class="buttonFired" value="Yes" />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="datepicker" />
+                    <input type="text" id="datepicker" value="Select Date..."/>
                 </div>
             </div>
             <div class="row">
