@@ -2,3 +2,28 @@
 {
     text-align: center;
 }
+
+.buttonDays
+{
+    width: 40px; 
+}
+
+.buttonEmployment
+{
+    width: 75px; 
+}
+
+.buttonWorkNight
+{
+    width: 40px; 
+}
+
+.buttonFired
+{
+    width: 40px; 
+}
+
+.selected
+{
+    color: red;  
+}
