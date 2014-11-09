@@ -1,6 +1,7 @@
 ﻿var ApplyViewModel = function () {
     this.listOfStates = ko.observableArray([]);
     this.militaryBranches = ko.observableArray([]);
+    this.schoolTypes = ko.observableArray([]);
     this.employers = ko.observableArray([]);
     this.militaryExp = ko.observableArray([]);
     this.references = ko.observableArray([]);
@@ -9,7 +10,7 @@
 ApplyViewModel.prototype.getStates = function () {
     var self = this;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: '/Apply/GetStates',
         dataType: "JSON",
         success: function (data) {
@@ -24,11 +25,26 @@ ApplyViewModel.prototype.getStates = function () {
 ApplyViewModel.prototype.getMilitaryBranches = function () {
     var self = this;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: '/Apply/GetMilitaryBranches',
         dataType: "JSON",
         success: function (data) {
             self.militaryBranches(data);
+        },
+        error: function (data) {
+            console.log("Failure, please alert sysadmin.");
+        }
+    });
+}
+
+ApplyViewModel.prototype.getSchoolTypes = function () {
+    var self = this;
+    $.ajax({
+        type: "GET",
+        url: '/Apply/GetSchoolTypes',
+        dataType: "JSON",
+        success: function (data) {
+            self.schoolTypes(data);
         },
         error: function (data) {
             console.log("Failure, please alert sysadmin.");

@@ -4,6 +4,7 @@ $(function () {
     ko.applyBindings(apply_view_model);
     apply_view_model.getStates();
     apply_view_model.getMilitaryBranches();
+    apply_view_model.getSchoolTypes();
 
     $('.datepicker').datepicker({
         inline: true,
@@ -31,11 +32,19 @@ $(function () {
         $('#addReferenceModal').modal();
     })
 
+    $('#addEducation').click(function () {
+        $('#addEducationModal').modal();
+    })
+
     $('#addReference').click(function () {
 
     })
 
     $('#saveWorkExp').click(function () {
+
+    })
+
+    $('#saveEducation').click(function() {
 
     })
 

@@ -12,16 +12,22 @@ namespace LittletonProject2.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult GetStates()
         {
             return Json(StateArray.Abbreviations(), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public ActionResult getMilitaryBranches()
+        [HttpGet]
+        public ActionResult GetMilitaryBranches()
         {
             return Json(MilitaryBranches.GetMilitaryBranches(), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult GetSchoolTypes()
+        {
+            return Json(SchoolType.GetSchoolTypes(), JsonRequestBehavior.AllowGet);
+        } 
     }
 }

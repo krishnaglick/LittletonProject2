@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\MilitaryBranches.cs" />
+    <Compile Include="Actions\SchoolType.cs" />
     <Compile Include="Actions\StateArray.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
