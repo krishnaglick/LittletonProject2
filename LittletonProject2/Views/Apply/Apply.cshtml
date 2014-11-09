@@ -9,8 +9,27 @@
 @Styles.Render("~/Content/tabcontent.css")
 @Styles.Render("~/Content/Apply.css")
 @Styles.Render("~/Content/jquery-ui.min.css")
+@Styles.Render("~/Content/datepicker.css")
 @Styles.Render("~/Content/jquery-ui.theme.min.css")
 @Styles.Render("~/Content/jquery-ui.structure.min.css")
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $('#datepicker').datepicker({
+            inline: true,            showOtherMonths: true,            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],        });
+    });
+</script>
+<script>
+    $('.dates input:button').not('.selectAll').click(function () {
+        $(this).toggleClass('selected');
+    })
+</script>
+<script>
+    $('.dates .selectAll').click(function () {
+        $('.dates input:button').not('.selectAll').click();
+    })
+</script>
 
 <ul class="tabs">
     <li><a href="#view1">Personal Info</a></li>
@@ -88,8 +107,112 @@
     </div>
     <!-- Employment Info -->
     <div id="view2">
-        content 2
+        <div class="container-fluid center">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="daysAvailable">Days Available</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="employmentDesired">Employment Desired</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="hoursWeekly">Hours Available Per Week</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" value="All" class="selectAll buttonDays" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Mon" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Tue" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <input type="button" class="buttonEmployment" value="FullTime" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="hoursPerWeek" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Wed" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Thur" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Fri" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <input type="button" class="buttonEmployment" value="PartTime" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Sat" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays" value="Sun" />
+                    </div>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="workNight">Can You Work Nights</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="beenFired">Have You Been Fired Before</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="dateAvailable">Date Available</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="button" class="buttonWorkNight" value="Yes" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="button" class="buttonFired" value="Yes" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="datepicker" value="Select Date..."/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="button" class="buttonWorkNight" value="No" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="button" class="buttonFired" value="No" />
+                </div>
+            </div>
+
+        </div>
     </div>
+          
     <!-- Work Experience -->
     <div id="view3">
         <div class="contianer-fluid">
