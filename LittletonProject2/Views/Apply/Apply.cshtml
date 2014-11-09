@@ -12,27 +12,6 @@
 @Styles.Render("~/Content/datepicker.css")
 @Styles.Render("~/Content/jquery-ui.theme.min.css")
 @Styles.Render("~/Content/jquery-ui.structure.min.css")
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script>
-    $(function () {
-        $('#datepicker').datepicker({
-            inline: true,
-            showOtherMonths: true,
-            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        });
-    });
-</script>
-<script>
-    $('.dates input:button').not('.selectAll').click(function () {
-        $(this).toggleClass('selected');
-    })
-</script>
-<script>
-    $('.dates .selectAll').click(function () {
-        $('.dates input:button').not('.selectAll').click();
-    })
-</script>
 
 <ul class="tabs">
     <li><a href="#view1">Personal Info</a></li>
@@ -201,7 +180,7 @@
                     <input type="button" class="buttonFired" value="Yes" />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="datepicker" value="Select Date..."/>
+                    <input type="text" class="datepicker" value="Select Date..."/>
                 </div>
             </div>
             <div class="row">

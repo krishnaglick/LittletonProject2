@@ -5,7 +5,19 @@ $(function () {
     apply_view_model.getStates();
     apply_view_model.getMilitaryBranches();
 
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        inline: true,
+        showOtherMonths: true,
+        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    });
+
+    $('.dates input:button').not('.selectAll').click(function () {
+        $(this).toggleClass('selected');
+    });
+
+    $('.dates .selectAll').click(function () {
+        $('.dates input:button').not('.selectAll').click();
+    });
 
     $('#addWorkExp').click(function () {
         $('#addWorkExpModal').modal();
