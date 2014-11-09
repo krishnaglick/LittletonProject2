@@ -1,6 +1,9 @@
 ﻿var ApplyViewModel = function () {
     this.listOfStates = ko.observableArray([]);
     this.militaryBranches = ko.observableArray([]);
+    this.employers = ko.observableArray([]);
+    this.militaryExp = ko.observableArray([]);
+    this.references = ko.observableArray([]);
 }
 
 ApplyViewModel.prototype.getStates = function () {
@@ -31,4 +34,20 @@ ApplyViewModel.prototype.getMilitaryBranches = function () {
             console.log("Failure, please alert sysadmin.");
         }
     });
+}
+
+/*  Planning to use selectors to build a new item to push into one of my obserables, for showing on a page.
+    Not sure if this is the best way though.                                                             */
+
+ApplyViewModel.prototype.addEmployer = function () {
+    var self = this;
+    console.log($('#employerDuties').val());
+}
+
+ApplyViewModel.prototype.addMilitaryExp = function () {
+    var self = this;
+}
+
+ApplyViewModel.prototype.addReference = function () {
+    var self = this;
 }
