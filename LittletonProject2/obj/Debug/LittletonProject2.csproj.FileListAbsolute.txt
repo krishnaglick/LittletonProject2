@@ -108,7 +108,6 @@ C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsof
 C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
 C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll.config
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.pdb
@@ -161,5 +160,6 @@ C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\Litt
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
