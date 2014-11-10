@@ -194,6 +194,7 @@
     <Content Include="Content\arrow.png" />
     <Content Include="Content\darkdenim3.png" />
     <Content Include="Content\dark_leather.png" />
+    <Content Include="Content\greentick.jpg" />
     <Content Include="Content\tabcontent.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -251,6 +252,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\livevalidation_standalone.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

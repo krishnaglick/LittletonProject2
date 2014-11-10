@@ -1,4 +1,18 @@
-﻿.center
+﻿.LV_invalid
+{
+    display: inline-block;
+    color: red;
+    font-size: 10px;  
+    margin-bottom: 2px; 
+}
+
+/*FUCK OFF VALID MESSAGE =D */
+.LV_valid
+{
+    display: none;
+}
+
+.center
 {
     text-align: center;
     width: 60%;

@@ -4,6 +4,7 @@
 @Scripts.Render("~/Scripts/jquery-ui.min-1.11.1.js")
 @Scripts.Render("~/Scripts/knockout.js")
 @Scripts.Render("~/Scripts/tabcontent.js")
+@Scripts.Render("~/Scripts/livevalidation_standalone.js")
 @Scripts.Render("~/ViewModels/ApplyViewModel.js")
 @Scripts.Render("~/ViewControllers/Apply.js")
 @Styles.Render("~/Content/tabcontent.css")
@@ -24,68 +25,70 @@
 <div class="tabcontents">
     <!-- Personal Info -->
     <div id="view1">
-        <div class="contianer-fluid">
-            <div class="row">
-                <div class="col-xs-3">
-                    <label for="firstName">First Name</label>
+        <form id="myForm">
+            <div class="contianer-fluid">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="over18">Over 18?</label>
+                    </div>
                 </div>
-                <div class="col-xs-3">
-                    <label for="lastName">Last Name</label>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="text" id="firstName"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="text" id="lastName" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="checkbox" id="over18" />
+                    </div>
                 </div>
-                <div class="col-xs-2">
-                    <label for="over18">Over 18?</label>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label for="streetAddress">Street Address</label>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="City">City</label>
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="State">State</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="text" id="streetAddress" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="text" id="City" />
+                    </div>
+                    <div class="col-xs-2">
+                        <select id="State" data-bind="options: listOfStates"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label for="mobilePhone">Mobile Phone</label>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="homePhone">Home Phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="text" id="mobilePhone" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="text" id="homePhone" />
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <input type="text" id="firstName" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="text" id="lastName" />
-                </div>
-                <div class="col-xs-2">
-                    <input type="checkbox" id="over18" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <label for="streetAddress">Street Address</label>
-                </div>
-                <div class="col-xs-3">
-                    <label for="City">City</label>
-                </div>
-                <div class="col-xs-2">
-                    <label for="State">State</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <input type="text" id="streetAddress" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="text" id="City" />
-                </div>
-                <div class="col-xs-2">
-                    <select id="State" data-bind="options: listOfStates"></select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <label for="mobilePhone">Mobile Phone</label>
-                </div>
-                <div class="col-xs-3">
-                    <label for="homePhone">Home Phone</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <input type="text" id="mobilePhone" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="text" id="homePhone" />
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
     <!-- Employment Info -->
     <div id="view2">

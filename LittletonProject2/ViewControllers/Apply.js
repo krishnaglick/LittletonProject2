@@ -48,6 +48,16 @@ $(function () {
 
     })
 
+
+    //LiveValidation is done here 
+    new LiveValidation('firstName').add(Validate.Presence);
+    new LiveValidation('lastName').add(Validate.Presence);
+    new LiveValidation('City').add(Validate.Presence);
+    new LiveValidation('streetAddress').add(Validate.Presence);
+    new LiveValidation('mobilePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
+    new LiveValidation('homePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
+
+   
     $('.modal').on('hidden.bs.modal, show.bs.modal', function () {
         $(this).find('input:text').val("");
         $(this).find('input:checkbox').attr('checked', false);
