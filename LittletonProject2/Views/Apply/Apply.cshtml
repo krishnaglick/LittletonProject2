@@ -24,7 +24,7 @@
 <div class="tabcontents">
     <!-- Personal Info -->
     <div id="view1">
-        <div class="contianer-fluid">
+        <div class="contianer-fluid center">
             <div class="row">
                 <div class="col-xs-3">
                     <label for="firstName">First Name</label>
@@ -33,15 +33,15 @@
                     <label for="lastName">Last Name</label>
                 </div>
                 <div class="col-xs-2">
-                    <label for="over18">Over 18?</label>
+                    <label for="over18">Over 18</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="firstName" />
+                    <input type="text" id="firstName" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="lastName" />
+                    <input type="text" id="lastName" required />
                 </div>
                 <div class="col-xs-2">
                     <input type="checkbox" id="over18" />
@@ -60,10 +60,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="streetAddress" />
+                    <input type="text" id="streetAddress" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="City" />
+                    <input type="text" id="City" required />
                 </div>
                 <div class="col-xs-2">
                     <select id="State" data-bind="options: listOfStates"></select>
@@ -79,7 +79,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="mobilePhone" />
+                    <input type="text" id="mobilePhone" required />
                 </div>
                 <div class="col-xs-3">
                     <input type="text" id="homePhone" />
@@ -92,10 +92,10 @@
         <div class="container-fluid center">
             <div class="row">
                 <div class="col-xs-3">
-                    <label for="daysAvailable">Days Available</label>
+                    <label>Days Available</label>
                 </div>
                 <div class="col-xs-3">
-                    <label for="employmentDesired">Employment Desired</label>
+                    <label for="employmentDesired">Employment Type</label>
                 </div>
                 <div class="col-xs-3">
                     <label for="hoursWeekly">Hours Available Per Week</label>
@@ -105,57 +105,57 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" value="All" class="selectAll buttonDays" />
+                        <input type="button" class="selectAll round-button" value="All" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Mon" />
+                        <input type="button" class="buttonDays round-button" value="Mon" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Tue" />
+                        <input type="button" class="buttonDays round-button" value="Tue" />
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="button" class="buttonEmployment" value="FullTime" />
+                    <div class="btn-group-sm">
+                        <input type="button" id="FullTime" class="btn btn-default active" value="Full" />
+                        <input type="button" id="PartTime" class="btn btn-default" value="Part" />
+                    </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="hoursPerWeek" />
+                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" required />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Wed" />
+                        <input type="button" class="buttonDays round-button" value="Wed" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Thur" />
+                        <input type="button" class="buttonDays round-button" value="Thr" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Fri" />
+                        <input type="button" class="buttonDays round-button" value="Fri" />
                     </div>
-                </div>
-                <div class="col-xs-3">
-                    <input type="button" class="buttonEmployment" value="PartTime" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Sat" />
+                        <input type="button" class="buttonDays round-button" value="Sat" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays" value="Sun" />
+                        <input type="button" class="buttonDays round-button" value="Sun" />
                     </div>
                 </div>
             </div>
@@ -174,24 +174,21 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="button" class="buttonWorkNight" value="Yes" />
+                    <div class="btn-group-sm">
+                        <input type="button" id="NightsYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" id="NightsNo" class="btn btn-default" value="No" />
+                    </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="button" class="buttonFired" value="Yes" />
+                    <div class="btn-group-sm">
+                        <input type="button" id="FiredYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" id="FiredNo" class="btn btn-default" value="No" />
+                    </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" class="datepicker" value="Select Date..."/>
+                    <input type="text" class="datepicker" value="Select Date..." maxlength="10" required />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <input type="button" class="buttonWorkNight" value="No" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="button" class="buttonFired" value="No" />
-                </div>
-            </div>
-
         </div>
     </div>
           
@@ -249,10 +246,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerName" />
+                            <input type="text" id="employerName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEmail" />
+                            <input type="text" id="employerEmail" required />
                         </div>
                         <div class="col-xs-4">
                             <input type="checkbox" id="employerCanContact" />
@@ -272,10 +269,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStreet" />
+                            <input type="text" id="employerStreet" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerCity" />
+                            <input type="text" id="employerCity" required />
                         </div>
                         <div class="col-xs-4">
                             <select id="employerState" data-bind="options: listOfStates"></select>
@@ -292,7 +289,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerLastBoss" />
+                            <input type="text" id="employerLastBoss" required />
                         </div>
                         <div class="col-xs-4">
                             <input type="text" id="employerPhone" />
@@ -309,10 +306,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStartDate" class="datepicker" />
+                            <input type="text" id="employerStartDate" class="datepicker" maxlength="10" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEndDate" class="datepicker" />
+                            <input type="text" id="employerEndDate" class="datepicker" maxlength="10" required />
                         </div>
                     </div>
 
@@ -355,16 +352,22 @@
                         <div class="col-xs-4">
                             <label for="inReserve">Reserve?</label>
                         </div>
+                        <div>
+                            <label for="honorableDischarge">Honorable Discharge</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="number" id="yearsInMilitary" min="1" max="100" />
+                            <input type="number" id="yearsInMilitary" min="1" max="100" required />
                         </div>
                         <div class="col-xs-4">
                             <select id="militaryBranch" data-bind="options: militaryBranches"></select>
                         </div>
                         <div class="col-xs-4">
                             <input type="checkbox" id="inReserve" />
+                        </div>
+                        <div>
+                            <input type="checkbox" id="honorableDischarge" />
                         </div>
                     </div>
                 </div>
@@ -399,7 +402,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceName" />
+                            <input type="text" id="referenceName" required />
                         </div>
                         <div class="col-xs-4">
                             <input type="text" id="referenceTitle" />
@@ -442,10 +445,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referencePhone" />
+                            <input type="text" id="referencePhone" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceEmail" />
+                            <input type="text" id="referenceEmail" required />
                         </div>
                     </div>
                 </div>

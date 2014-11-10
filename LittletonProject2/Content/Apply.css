@@ -18,11 +18,6 @@
     margin-left: 15px;
 }
 
-.buttonDays
-{
-    width: 40px; 
-}
-
 .buttonEmployment
 {
     width: 75px; 
@@ -38,7 +33,30 @@
     width: 40px; 
 }
 
-.selected
+.active
 {
-    color: red;  
+    background-color: #AAAAAA;
+    border-style: groove;
+}
+
+.round-button-selected
+{
+    background-color: #428bca !important;
+}
+
+.round-button {
+    width:30px;
+    height:30px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    font-size: 10px;
+    text-align:center;
+    text-decoration:none;
+    background: #464646;
+    box-shadow: 0 0 3px gray;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: #262626;
 }
