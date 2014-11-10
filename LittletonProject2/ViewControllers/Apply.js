@@ -10,18 +10,24 @@ $(function () {
     $('.datepicker').datepicker({
         inline: true,
         showOtherMonths: true,
-        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat']
     });
 
     //Pick days of week you can work
     $('.buttonDays').click(function () {
         $(this).toggleClass('round-button-selected');
+        if ($(this).hasClass('round-button-selected'))
+            apply_view_model.DaysAvailable.push($(this).val());
+        else
+            apply_view_model.DaysAvailable.remove($(this).val());
     });
     var allTracker = true;
     $('.selectAll').click(function () {
+        apply_view_model.DaysAvailable.removeAll();
         if (allTracker) {
             $('.buttonDays').addClass('round-button-selected');
             allTracker = false;
+            apply_view_model.DaysAvailable.push("Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun");
         }
         else {
             $('.buttonDays').removeClass('round-button-selected');
@@ -44,26 +50,32 @@ $(function () {
     $('#FullTime').click(function () {
         $('#FullTime').addClass('active');
         $('#PartTime').removeClass('active');
+        apply_view_model.EmploymentType("Full Time");
     })
     $('#PartTime').click(function () {
         $('#FullTime').removeClass('active');
         $('#PartTime').addClass('active');
+        apply_view_model.EmploymentType("Part Time");
     })
     $('#NightsYes').click(function () {
         $('#NightsYes').addClass('active');
         $('#NightsNo').removeClass('active');
+        apply_view_model.WorkNights(true);
     })
     $('#NightsNo').click(function () {
         $('#NightsYes').removeClass('active');
         $('#NightsNo').addClass('active');
+        apply_view_model.WorkNights(false);
     })
     $('#FiredYes').click(function () {
         $('#FiredYes').addClass('active');
         $('#FiredNo').removeClass('active');
+        apply_view_model.FiredBefore(true);
     })
     $('#FiredNo').click(function () {
         $('#FiredYes').removeClass('active');
         $('#FiredNo').addClass('active');
+        apply_view_model.FiredBefore(false);
     })
 
     //Clear out modals when they close
@@ -75,3 +87,13 @@ $(function () {
         $(this).find('input[type="number"]').val("");
     });
 })
+
+//Check if one date comes before another
+function checkDates(value, comparedTo){
+    value = value.split(/\D+/g);
+    comparedTo = comparedTo.split(/\D+/g);
+    var FirstDate = new Date(value[2],value[1],value[0]);
+    var SecondDate = new Date(comparedTo[2],comparedTo[1],comparedTo[0]);
+
+    return FirstDate.getTime() < SecondDate.getTime();
+}

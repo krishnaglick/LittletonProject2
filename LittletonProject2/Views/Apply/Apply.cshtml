@@ -38,13 +38,13 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="firstName" required />
+                    <input type="text" id="firstName" data-bind="value: FirstName" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="lastName" required />
+                    <input type="text" id="lastName" data-bind="value: LastName" required />
                 </div>
                 <div class="col-xs-2">
-                    <input type="checkbox" id="over18" />
+                    <input type="checkbox" id="over18" data-bind="checked: Over18" />
                 </div>
             </div>
             <div class="row">
@@ -60,13 +60,13 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="streetAddress" required />
+                    <input type="text" id="streetAddress" data-bind="value: Street" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="City" required />
+                    <input type="text" id="City" data-bind="value: City" required />
                 </div>
                 <div class="col-xs-2">
-                    <select id="State" data-bind="options: listOfStates"></select>
+                    <select id="State" data-bind="options: listOfStates, value: State"></select>
                 </div>
             </div>
             <div class="row">
@@ -79,10 +79,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="mobilePhone" required />
+                    <input type="text" id="mobilePhone" data-bind="value: MobilePhone" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="homePhone" />
+                    <input type="text" id="homePhone" data-bind="value: HomePhone" />
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" required />
+                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable" required />
                 </div>
             </div>
 
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" class="datepicker" value="Select Date..." maxlength="10" required />
+                    <input type="text" class="datepicker" value="Select Date..." maxlength="10" data-bind="value: DateAvailable" required />
                 </div>
             </div>
         </div>
@@ -327,7 +327,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn" data-bind="click: addEmployer" data-dismiss="modal" aria-hidden="true" id="saveWorkExp">Save</button>
+                <button class="btn" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
         </div>
     </div>

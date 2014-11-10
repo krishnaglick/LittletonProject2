@@ -6,6 +6,24 @@
     this.employers = ko.observableArray([]);
     this.militaryExp = ko.observableArray([]);
     this.references = ko.observableArray([]);
+
+    //Applicant Info
+    this.FirstName = ko.observable();
+    this.LastName = ko.observable();
+    this.Over18 = ko.observable(false);
+    this.Street = ko.observable();
+    this.City = ko.observable();
+    this.State = ko.observable();
+    this.MobilePhone = ko.observable();
+    this.HomePhone = ko.observable();
+
+    //Employment Info
+    this.DaysAvailable = ko.observableArray([]);
+    this.EmploymentType = ko.observable("Full Time");
+    this.HoursAvailable = ko.observable(40);
+    this.WorkNights = ko.observable(false);
+    this.FiredBefore = ko.observable(false);
+    this.DateAvailable = ko.observable();
 }
 
 ApplyViewModel.prototype.getStates = function () {
@@ -43,10 +61,10 @@ ApplyViewModel.prototype.getMilitaryBranches = function () {
 
 ApplyViewModel.prototype.addEmployer = function (event) {
     if ($('#addWorkExpModal').find(':invalid').length > 0)
-    {
-        alert("potato");
-        event.preventDefault();
-    }
+        return false;
+
+    if (!(checkDates($('#employerStartDate').val(), $('#employerEndDate').val())))
+        return false;
 
     this.employers.push({
         name: $('#employerName').val(),
@@ -61,18 +79,28 @@ ApplyViewModel.prototype.addEmployer = function (event) {
         endDate: $('#employerEndDate').val(),
         duties: $('#employerDuties').val()
     });
+
+    $('#addWorkExpModal').modal('hide');
 }
 
 ApplyViewModel.prototype.addMilitaryExp = function () {
+    if ($('#addMilitaryExpModal').find(':invalid').length > 0)
+        return false;
+
     this.militaryExp.push({
         years: $('#yearsInMilitary').val(),
         years: $('#militaryBranch').val(),
         reserve: $('#inReserve').is(':checked'),
         discharge: $('#honorableDischarge').is(':checked')
     });
+
+    $('#addMilitaryExpModal').modal('hide');
 }
 
 ApplyViewModel.prototype.addReference = function () {
+    if ($('#addReferenceModal').find(':invalid').length > 0)
+        return false;
+
     this.references.push({
         name: $('#referenceName').val(),
         title: $('#yearsInMilitary').val(),
@@ -83,4 +111,6 @@ ApplyViewModel.prototype.addReference = function () {
         phone: $('#referencePhone').val(),
         email: $('#referenceEmail').val()
     });
+
+    $('#addReferenceModal').modal('hide');
 }
