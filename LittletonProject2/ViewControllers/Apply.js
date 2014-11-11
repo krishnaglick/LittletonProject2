@@ -112,4 +112,6 @@ function applyValidation() {
     new LiveValidation('streetAddress').add(Validate.Presence);
     new LiveValidation('mobilePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
     new LiveValidation('homePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
+    new LiveValidation('dateAvailableEmployment').add(Validate.Presence);
+
 }
