@@ -30,7 +30,7 @@ input[type=checkbox][disabled]
 }
 .modal-body label
 {
-    color: white;
+    color: black;
 }
 .submitButton
 {
