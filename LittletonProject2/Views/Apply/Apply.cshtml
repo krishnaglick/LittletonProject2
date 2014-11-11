@@ -235,8 +235,8 @@
 
 <!-- Add Work Exp Modal -->
 <div id="addWorkExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -338,48 +338,44 @@
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
                 <button class="btn btn-primary" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Military Exp Modal -->
 <div id="addMilitaryExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
             <div class="modal-body">
                 <div class="contianer-fluid">
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="yearsInMilitary">Years In Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="militaryBranch">Branch of Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="inReserve">Reserve?</label>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <input type="number" class="form-control" id="yearsInMilitary" min="1" max="100" required />
-                        </div>
-                        <div class="col-xs-4">
-                            <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches"></select>
-                        </div>
-                        <div class="col-xs-4">
-                            <input type="checkbox" id="inReserve" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="honorableDischarge">Honorable Discharge?</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
+                            <input type="number" class="form-control" id="yearsInMilitary" min="1" max="100" required />
+                        </div>
+                        <div class="col-xs-3">
+                            <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches"></select>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="checkbox" id="inReserve" />
+                        </div>
+                        <div class="col-xs-3">
                             <input type="checkbox" id="honorableDischarge" />
                         </div>
                     </div>
@@ -389,14 +385,14 @@
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn btn-primary" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Reference Modal -->
 <div id="addReferenceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -470,14 +466,14 @@
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn btn-primary" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!--Add Education Modal-->
 <div id="addEducationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -525,7 +521,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" class="form-control" id="gradDate" data-bind="value: graduationDate" class="datepicker" />
+                            <input type="text" class="form-control datepicker" id="gradDate" data-bind="value: graduationDate" />
                         </div>
                         <div class="col-xs-4">
                             <input type="text" class="form-control" id="majorDegCert" data-bind="value: majorDegCert" />
@@ -537,6 +533,6 @@
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn btn-primary" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
