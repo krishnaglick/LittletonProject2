@@ -345,8 +345,8 @@
 
 <!-- Add Work Exp Modal -->
 <div id="addWorkExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -365,10 +365,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerName" data-bind="value: employerName" required />
+                            <input type="text" id="employerName" class="form-control" data-bind="value: employerName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEmail" data-bind="value: employerEmail" required />
+                            <input type="text" id="employerEmail" class="form-control" data-bind="value: employerEmail" required />
                         </div>
                         <div class="col-xs-4">
                             <input type="checkbox" id="employerCanContact" data-bind="checked: employerCanContact" />
@@ -388,13 +388,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStreet" data-bind="value: employerStreet" required />
+                            <input type="text" id="employerStreet" class="form-control" data-bind="value: employerStreet" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerCity" data-bind="value: employerCity" required />
+                            <input type="text" id="employerCity" class="form-control" data-bind="value: employerCity" required />
                         </div>
                         <div class="col-xs-4">
-                            <select id="employerState" data-bind="options: listOfStates, value: employerState"></select>
+                            <select id="employerState" class="form-control" data-bind="options: listOfStates, value: employerState"></select>
                         </div>
                     </div>
 
@@ -408,10 +408,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerLastBoss" data-bind="value: employerPrevBoss" required />
+                            <input type="text" id="employerLastBoss" class="form-control" data-bind="value: employerPrevBoss" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerPhone" data-bind="value: employerPhone" />
+                            <input type="text" id="employerPhone" class="form-control" data-bind="value: employerPhone" />
                         </div>
                     </div>
 
@@ -425,10 +425,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker" maxlength="10" required />
+                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker form-control" maxlength="10" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEndDate" data-bind="value: employerEndDate" class="datepicker" maxlength="10" required />
+                            <input type="text" id="employerEndDate"  data-bind="value: employerEndDate" class="datepicker form-control" maxlength="10" required />
                         </div>
                     </div>
 
@@ -445,30 +445,30 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Military Exp Modal -->
 <div id="addMilitaryExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
             <div class="modal-body">
-                <div class="contianer-fluid">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="yearsInMilitary">Years In Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="militaryBranch">Branch of Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="inReserve">Reserve?</label>
                         </div>
                         <div>
@@ -476,13 +476,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4">
-                            <input type="number" id="yearsInMilitary" data-bind="value: militaryYears" min="1" max="100" required />
+                        <div class="col-xs-3">
+                            <input type="number" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100" required />
                         </div>
-                        <div class="col-xs-4">
-                            <select id="militaryBranch" data-bind="options: militaryBranches, value: militaryBranch"></select>
+                        <div class="col-xs-3">
+                            <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches, value: militaryBranch"></select>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <input type="checkbox" id="inReserve" data-bind="checked: inReserve" />
                         </div>
                         <div>
@@ -492,17 +492,17 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Reference Modal -->
 <div id="addReferenceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -521,13 +521,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceName" data-bind="value: referenceName" required />
+                            <input type="text" id="referenceName" class="form-control" data-bind="value: referenceName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceTitle" data-bind="value: referenceTitle" />
+                            <input type="text" id="referenceTitle" class="form-control" data-bind="value: referenceTitle" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCompany" data-bind="value: referenceCompany" />
+                            <input type="text" id="referenceCompany" class="form-control" data-bind="value: referenceCompany" />
                         </div>
                     </div>
 
@@ -544,13 +544,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceStreetAddress" data-bind="value: referenceStreet" />
+                            <input type="text" id="referenceStreetAddress" class="form-control" data-bind="value: referenceStreet" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCity" data-bind="value: referenceCity" />
+                            <input type="text" id="referenceCity" class="form-control" data-bind="value: referenceCity" />
                         </div>
                         <div class="col-xs-4">
-                            <select class="referenceState" data-bind="options: listOfStates, value: referenceState"></select>
+                            <select class="referenceState form-control" data-bind="options: listOfStates, value: referenceState"></select>
                         </div>
                     </div>
 
@@ -564,26 +564,26 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referencePhone" data-bind="value: referencePhone" required />
+                            <input type="text" id="referencePhone" class="form-control" data-bind="value: referencePhone" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceEmail" data-bind="value: referenceEmail" required />
+                            <input type="text" id="referenceEmail" class="form-control" data-bind="value: referenceEmail" required />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!--Add Education Modal-->
 <div id="addEducationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -599,10 +599,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <select id="schoolType" data-bind="options: schoolTypes, value: schoolType"></select>
+                            <select id="schoolType" class="form-control" data-bind="options: schoolTypes, value: schoolType"></select>
                         </div>
                         <div class="col-xs-4">
-                            <input id="schoolName" data-bind="value: schoolName" type="text" />
+                            <input id="schoolName" class="form-control" data-bind="value: schoolName" type="text" />
                         </div>
                     </div>
                     <div class="row">
@@ -615,10 +615,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" data-bind="value: schoolCity" id="schoolCity" />
+                            <input type="text" class="form-control" data-bind="value: schoolCity" id="schoolCity" />
                         </div>
                         <div class="col-xs-4">
-                            <select id="schoolState" data-bind="options: listOfStates, value: schoolState"></select>
+                            <select id="schoolState" class="form-control" data-bind="options: listOfStates, value: schoolState"></select>
                         </div>
                     </div>
                     <div class="row">
@@ -631,18 +631,18 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="gradDate" data-bind="value: graduationDate" class="datepicker" />
+                            <input type="text" id="gradDate" data-bind="value: graduationDate" class="datepicker form-control" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="majorDegCert" data-bind="value: majorDegCert" />
+                            <input type="text" class="form-control" id="majorDegCert" data-bind="value: majorDegCert" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
