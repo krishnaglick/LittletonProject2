@@ -212,8 +212,7 @@
     <div id="view4">
         <div class="contianer-fluid">
             <div class="row">
-                <div class="col-xs-5">
-                </div>
+                <div class="col-xs-5"></div>
                 <div>
                     <input type="button" id="addReference" value="Add Reference" class="btn btn-primary" />
                 </div>
@@ -222,6 +221,14 @@
     </div>
     <!-- Education -->
     <div id="view5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-5"></div>
+                <div>
+                    <input type="button" id="addEducation" value="Add Education" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -457,6 +464,73 @@
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Education Modal-->
+<div id="addEducationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="model-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+            </div>
+            <div class="modal-body">
+                <div class="contianer-fluid">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="schoolType">School Type</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="schoolName">School Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <select id="schoolType" data-bind="options: schoolTypes, value: schoolType"></select>
+                        </div>
+                        <div class="col-xs-4">
+                            <input id="schoolName" data-bind="value: schoolName" type="text" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="schoolCity">City</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="schoolState">State</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" data-bind="value: schoolCity" id="schoolCity" />
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="schoolState" data-bind="options: listOfStates, value: schoolState"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="gradDate">Graduation Date</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="majorDegCert">Major/Degree/Cert</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" id="gradDate" data-bind="value: graduationDate" class="datepicker" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="majorDegCert" data-bind="value: majorDegCert" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
             </div>
         </div>
     </div>

@@ -2,10 +2,12 @@
     //Stuff used from pullback
     this.listOfStates = ko.observableArray([]);
     this.militaryBranches = ko.observableArray([]);
+    this.schoolTypes = ko.observableArray([]);
     //Tracking
     this.employers = ko.observableArray([]);
     this.militaryExp = ko.observableArray([]);
     this.references = ko.observableArray([]);
+    this.education = ko.observableArray([]);
 
     //Applicant Info
     this.FirstName = ko.observable();
@@ -24,12 +26,20 @@
     this.WorkNights = ko.observable(false);
     this.FiredBefore = ko.observable(false);
     this.DateAvailable = ko.observable();
+
+    //School Modal
+    this.schoolType = ko.observable();
+    this.schoolName = ko.observable();
+    this.schoolCity = ko.observable();
+    this.schoolState = ko.observable();
+    this.graduationDate = ko.observable();
+    this.majorDegCert = ko.observable();
 }
 
 ApplyViewModel.prototype.getStates = function () {
     var self = this;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: '/Apply/GetStates',
         dataType: "JSON",
         success: function (data) {
@@ -44,7 +54,7 @@ ApplyViewModel.prototype.getStates = function () {
 ApplyViewModel.prototype.getMilitaryBranches = function () {
     var self = this;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: '/Apply/GetMilitaryBranches',
         dataType: "JSON",
         success: function (data) {
@@ -56,8 +66,20 @@ ApplyViewModel.prototype.getMilitaryBranches = function () {
     });
 }
 
-/*  Planning to use selectors to build a new item to push into one of my obserables, for showing on a page.
-    Not sure if this is the best way though.                                                             */
+ApplyViewModel.prototype.getSchoolTypes = function () {
+    var self = this;
+    $.ajax({
+        type: "GET",
+        url: '/Apply/GetSchoolTypes',
+        dataType: "JSON",
+        success: function (data) {
+            self.schoolTypes(data);
+        },
+        error: function (data) {
+            console.log("Failure, please alert sysadmin.");
+        }
+    });
+}
 
 ApplyViewModel.prototype.addEmployer = function (event) {
     if ($('#addWorkExpModal').find(':invalid').length > 0)
@@ -113,4 +135,21 @@ ApplyViewModel.prototype.addReference = function () {
     });
 
     $('#addReferenceModal').modal('hide');
+}
+
+ApplyViewModel.prototype.saveEducation = function () {
+    if ($('#addEducationModal').find(':invalid').length > 0)
+        return false;
+
+    var self = this;
+    this.education.push({
+        schoolType: self.schoolType,
+        schoolName: self.schoolName,
+        schoolCity: self.schoolCity,
+        schoolState: self.schoolState,
+        gradDate: self.graduationDate,
+        majorDegCert: self.majorDegCert
+    });
+
+    $('#addEducationModal').modal('hide');
 }

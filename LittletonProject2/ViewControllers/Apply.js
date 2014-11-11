@@ -5,6 +5,7 @@ $(function () {
     ko.applyBindings(apply_view_model);
     apply_view_model.getStates();
     apply_view_model.getMilitaryBranches();
+    apply_view_model.getSchoolTypes();
 
     //Activate the datepicker!
     $('.datepicker').datepicker({
@@ -35,7 +36,7 @@ $(function () {
         }
     });
 
-    //Activate the modals!
+    //Setup modal popping up
     $('#addWorkExp').click(function () {
         $('#addWorkExpModal').modal();
     })
@@ -44,6 +45,9 @@ $(function () {
     })
     $('#addReference').click(function () {
         $('#addReferenceModal').modal();
+    })
+    $('#addEducation').click(function () {
+        $('#addEducationModal').modal();
     })
 
     //Button toggling cause bootstrap don't do that shit on its own
