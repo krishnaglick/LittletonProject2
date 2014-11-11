@@ -190,14 +190,14 @@ ApplyViewModel.prototype.removeEmployer = function (viewModel, data) {
     viewModel.employers.remove(data);
 }
 
-ApplyViewModel.prototype.removeMilitaryExp = function () {
-
+ApplyViewModel.prototype.removeMilitaryExp = function (viewModel, data) {
+    viewModel.militaryExp.remove(data);
 }
 
-ApplyViewModel.prototype.removeReference = function () {
-
+ApplyViewModel.prototype.removeReference = function (viewModel, data) {
+    viewModel.references.remove(data);
 }
 
-ApplyViewModel.prototype.removeEducation = function () {
-
+ApplyViewModel.prototype.removeEducation = function (viewModel, data) {
+    viewModel.education.remove(data);
 }
