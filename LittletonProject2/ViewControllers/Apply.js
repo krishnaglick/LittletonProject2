@@ -78,6 +78,8 @@ $(function () {
         apply_view_model.FiredBefore(false);
     })
 
+    applyValidation();
+
     //Clear out modals when they close
     $('.modal').on('hidden.bs.modal, show.bs.modal', function () {
         $(this).find('input:text').val("");
@@ -96,4 +98,14 @@ function checkDates(value, comparedTo){
     var SecondDate = new Date(comparedTo[2],comparedTo[1],comparedTo[0]);
 
     return FirstDate.getTime() < SecondDate.getTime();
+}
+
+function applyValidation() {
+    //LiveValidation is done here
+    new LiveValidation('firstName').add(Validate.Presence);
+    new LiveValidation('lastName').add(Validate.Presence);
+    new LiveValidation('City').add(Validate.Presence);
+    new LiveValidation('streetAddress').add(Validate.Presence);
+    new LiveValidation('mobilePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
+    new LiveValidation('homePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
 }
