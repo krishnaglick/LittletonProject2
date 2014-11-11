@@ -27,6 +27,35 @@
     this.FiredBefore = ko.observable(false);
     this.DateAvailable = ko.observable();
 
+    //Military Modal
+    this.militaryYears = ko.observable();
+    this.militaryBranch = ko.observable();
+    this.inReserve = ko.observable(false);
+    this.honorableDischarge = ko.observable(false);
+
+    //Work Exp Modal
+    this.employerName = ko.observable();
+    this.employerEmail = ko.observable();
+    this.employerCanContact = ko.observable(false);
+    this.employerStreet = ko.observable();
+    this.employerCity = ko.observable();
+    this.employerState = ko.observable();
+    this.employerPrevBoss = ko.observable();
+    this.employerPhone = ko.observable();
+    this.employerStartDate = ko.observable();
+    this.employerEndDate = ko.observable();
+    this.employerDuties = ko.observable();
+
+    //Reference Modal
+    this.referenceName = ko.observable();
+    this.referenceTitle = ko.observable();
+    this.referenceCompany = ko.observable();
+    this.referenceStreet = ko.observable();
+    this.referenceCity = ko.observable();
+    this.referenceState = ko.observable();
+    this.referencePhone = ko.observable();
+    this.referenceEmail = ko.observable();
+
     //School Modal
     this.schoolType = ko.observable();
     this.schoolName = ko.observable();
@@ -85,21 +114,22 @@ ApplyViewModel.prototype.addEmployer = function (event) {
     if ($('#addWorkExpModal').find(':invalid').length > 0)
         return false;
 
-    if (!(checkDates($('#employerStartDate').val(), $('#employerEndDate').val())))
+    var self = this;
+    if (!(checkDates(self.employerStartDate(), self.employerEndDate())))
         return false;
 
     this.employers.push({
-        name: $('#employerName').val(),
-        email: $('#employerEmail').val(),
-        canContact: $('#employerCanContact').is(':checked'),
-        street: $('#employerStreet').val(),
-        city: $('#employerCity').val(),
-        state: $('#employerState').val(),
-        boss: $('#employerLastBoss').val(),
-        phone: $('#employerPhone').val(),
-        startDate: $('#employerStartDate').val(),
-        endDate: $('#employerEndDate').val(),
-        duties: $('#employerDuties').val()
+        name: self.employerName(),
+        email: self.employerEmail(),
+        canContact: self.employerCanContact(),
+        street: self.employerStreet(),
+        city: self.employerCity(),
+        state: self.employerState(),
+        boss: self.employerPrevBoss(),
+        phone: self.employerPhone(),
+        startDate: self.employerStartDate(),
+        endDate: self.employerEndDate(),
+        duties: self.employerDuties()
     });
 
     $('#addWorkExpModal').modal('hide');
@@ -109,11 +139,12 @@ ApplyViewModel.prototype.addMilitaryExp = function () {
     if ($('#addMilitaryExpModal').find(':invalid').length > 0)
         return false;
 
+    var self = this;
     this.militaryExp.push({
-        years: $('#yearsInMilitary').val(),
-        years: $('#militaryBranch').val(),
-        reserve: $('#inReserve').is(':checked'),
-        discharge: $('#honorableDischarge').is(':checked')
+        years: self.militaryYears(),
+        branch: self.militaryBranch(),
+        reserve: self.inReserve(),
+        discharge: self.honorableDischarge()
     });
 
     $('#addMilitaryExpModal').modal('hide');
@@ -123,15 +154,16 @@ ApplyViewModel.prototype.addReference = function () {
     if ($('#addReferenceModal').find(':invalid').length > 0)
         return false;
 
+    var self = this;
     this.references.push({
-        name: $('#referenceName').val(),
-        title: $('#yearsInMilitary').val(),
-        company: $('#referenceTitle').val(),
-        street: $('#referenceStreetAddress').val(),
-        city: $('#referenceCity').val(),
-        state: $('#referenceState').val(),
-        phone: $('#referencePhone').val(),
-        email: $('#referenceEmail').val()
+        name: self.referenceName(),
+        title: self.referenceTitle(),
+        company: self.referenceCompany(),
+        street: self.referenceStreet(),
+        city: self.referenceCity(),
+        state: self.referenceState(),
+        phone: self.referencePhone(),
+        email: self.referenceEmail()
     });
 
     $('#addReferenceModal').modal('hide');
@@ -143,13 +175,29 @@ ApplyViewModel.prototype.saveEducation = function () {
 
     var self = this;
     this.education.push({
-        schoolType: self.schoolType,
-        schoolName: self.schoolName,
-        schoolCity: self.schoolCity,
-        schoolState: self.schoolState,
-        gradDate: self.graduationDate,
-        majorDegCert: self.majorDegCert
+        schoolType: self.schoolType(),
+        schoolName: self.schoolName(),
+        schoolCity: self.schoolCity(),
+        schoolState: self.schoolState(),
+        gradDate: self.graduationDate(),
+        majorDegCert: self.majorDegCert()
     });
 
     $('#addEducationModal').modal('hide');
+}
+
+ApplyViewModel.prototype.removeEmployer = function (viewModel, data) {
+    viewModel.employers.remove(data);
+}
+
+ApplyViewModel.prototype.removeMilitaryExp = function () {
+
+}
+
+ApplyViewModel.prototype.removeReference = function () {
+
+}
+
+ApplyViewModel.prototype.removeEducation = function () {
+
 }

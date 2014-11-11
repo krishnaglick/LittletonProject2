@@ -95,7 +95,7 @@ $(function () {
 })
 
 //Check if one date comes before another
-function checkDates(value, comparedTo){
+function checkDates(value, comparedTo) {
     value = value.split(/\D+/g);
     comparedTo = comparedTo.split(/\D+/g);
     var FirstDate = new Date(value[2],value[1],value[0]);

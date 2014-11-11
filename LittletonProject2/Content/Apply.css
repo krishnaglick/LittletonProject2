@@ -12,10 +12,16 @@
     display: none;
 }
 
+.glyphicon-trash
+{
+    cursor: pointer;
+}
+input[type=checkbox][disabled]
+{
+    cursor: default;
+}
 .center
 {
-    text-align: center;
-    width: 60%;
     margin-left: 20%;
 }
 .hidden

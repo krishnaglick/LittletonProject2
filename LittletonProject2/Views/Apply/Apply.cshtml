@@ -206,6 +206,57 @@
                     <input type="button" id="addMilitaryExp" value="Add Military Record" class="btn btn-primary" />
                 </div>
             </div>
+            <div class="row center" data-bind="visible: employers().length > 0">
+                <div class="col-xs-2">
+                    <b>Employer Name</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer Street</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer City</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer State</b>
+                </div>
+            </div>
+            <!-- ko foreach: employers -->
+                <div class="row center">
+                    <div class="col-xs-2" data-bind="text: name"></div>
+                    <div class="col-xs-2" data-bind="text: street"></div>
+                    <div class="col-xs-2" data-bind="text: city"></div>
+                    <div class="col-xs-2" data-bind="text: state"></div>
+                    <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeEmployer($parent, $data) }"></i>
+                </div>
+            <!-- /ko -->
+
+            <div class="row center" data-bind="visible: militaryExp().length > 0">
+                <div class="col-xs-2">
+                    <b>Military Branch</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Years Served</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>In the Reserve?</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Honorably Discharge</b>
+                </div>
+            </div>
+            <!-- ko foreach: militaryExp -->
+            <div class="row center">
+                <div class="col-xs-2" data-bind="text: branch"></div>
+                <div class="col-xs-2" data-bind="text: years"></div>
+                <div class="col-xs-2">
+                    <input type="checkbox" disabled="disabled" data-bind="checked: reserve" />
+                </div>
+                <div class="col-xs-2">
+                    <input type="checkbox" disabled="disabled" data-bind="checked: discharge" />
+                </div>
+                <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeMilitaryExp($parent, $data) }"></i>
+            </div>
+            <!-- /ko -->
         </div>
     </div>
     <!-- References -->
@@ -254,13 +305,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerName" required />
+                            <input type="text" id="employerName" data-bind="value: employerName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEmail" required />
+                            <input type="text" id="employerEmail" data-bind="value: employerEmail" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="checkbox" id="employerCanContact" />
+                            <input type="checkbox" id="employerCanContact" data-bind="checked: employerCanContact" />
                         </div>
                     </div>
 
@@ -277,13 +328,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStreet" required />
+                            <input type="text" id="employerStreet" data-bind="value: employerStreet" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerCity" required />
+                            <input type="text" id="employerCity" data-bind="value: employerCity" required />
                         </div>
                         <div class="col-xs-4">
-                            <select id="employerState" data-bind="options: listOfStates"></select>
+                            <select id="employerState" data-bind="options: listOfStates, value: employerState"></select>
                         </div>
                     </div>
 
@@ -297,10 +348,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerLastBoss" required />
+                            <input type="text" id="employerLastBoss" data-bind="value: employerPrevBoss" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerPhone" />
+                            <input type="text" id="employerPhone" data-bind="value: employerPhone" />
                         </div>
                     </div>
 
@@ -314,10 +365,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStartDate" class="datepicker" maxlength="10" required />
+                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker" maxlength="10" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEndDate" class="datepicker" maxlength="10" required />
+                            <input type="text" id="employerEndDate" data-bind="value: employerEndDate" class="datepicker" maxlength="10" required />
                         </div>
                     </div>
 
@@ -328,7 +379,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <textarea id="employerDuties" style="resize: none"></textarea>
+                            <textarea id="employerDuties" data-bind="value: employerDuties" style="resize: none"></textarea>
                         </div>
                     </div>
                 </div>
@@ -366,16 +417,16 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="number" id="yearsInMilitary" min="1" max="100" required />
+                            <input type="number" id="yearsInMilitary" data-bind="value: militaryYears" min="1" max="100" required />
                         </div>
                         <div class="col-xs-4">
-                            <select id="militaryBranch" data-bind="options: militaryBranches"></select>
+                            <select id="militaryBranch" data-bind="options: militaryBranches, value: militaryBranch"></select>
                         </div>
                         <div class="col-xs-4">
-                            <input type="checkbox" id="inReserve" />
+                            <input type="checkbox" id="inReserve" data-bind="checked: inReserve" />
                         </div>
                         <div>
-                            <input type="checkbox" id="honorableDischarge" />
+                            <input type="checkbox" id="honorableDischarge" data-bind="checked: honorableDischarge" />
                         </div>
                     </div>
                 </div>
@@ -410,13 +461,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceName" required />
+                            <input type="text" id="referenceName" data-bind="value: referenceName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceTitle" />
+                            <input type="text" id="referenceTitle" data-bind="value: referenceTitle" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCompany" />
+                            <input type="text" id="referenceCompany" data-bind="value: referenceCompany" />
                         </div>
                     </div>
 
@@ -433,13 +484,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceStreetAddress" />
+                            <input type="text" id="referenceStreetAddress" data-bind="value: referenceStreet" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCity" />
+                            <input type="text" id="referenceCity" data-bind="value: referenceCity" />
                         </div>
                         <div class="col-xs-4">
-                            <select class="referenceState" data-bind="options: listOfStates"></select>
+                            <select class="referenceState" data-bind="options: listOfStates, value: referenceState"></select>
                         </div>
                     </div>
 
@@ -453,10 +504,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referencePhone" required />
+                            <input type="text" id="referencePhone" data-bind="value: referencePhone" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceEmail" required />
+                            <input type="text" id="referenceEmail" data-bind="value: referenceEmail" required />
                         </div>
                     </div>
                 </div>
