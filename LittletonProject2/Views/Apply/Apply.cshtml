@@ -4,11 +4,13 @@
 @Scripts.Render("~/Scripts/jquery-ui.min-1.11.1.js")
 @Scripts.Render("~/Scripts/knockout.js")
 @Scripts.Render("~/Scripts/tabcontent.js")
+@Scripts.Render("~/Scripts/livevalidation_standalone.js")
 @Scripts.Render("~/ViewModels/ApplyViewModel.js")
 @Scripts.Render("~/ViewControllers/Apply.js")
 @Styles.Render("~/Content/tabcontent.css")
 @Styles.Render("~/Content/Apply.css")
 @Styles.Render("~/Content/jquery-ui.min.css")
+@Styles.Render("~/Content/datepicker.css")
 @Styles.Render("~/Content/jquery-ui.theme.min.css")
 @Styles.Render("~/Content/jquery-ui.structure.min.css")
 
@@ -18,12 +20,23 @@
     <li><a href="#view3">Work Experience</a></li>
     <li><a href="#view4">References</a></li>
     <li><a href="#view5">Education</a></li>
-    <li><input type="button" id="submit" value="Submit" class="btn btn-primary btn-sm submitButton" /></li>
+    <li>
+        <div class="btn-group">
+            <button type="button" id="submit" class="btn btn-sm btn-primary submitButton">Save</button>
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a style="margin-top: -5px; margin-bottom: -20px;" id="loadButton" href="#">Load</a></li>
+            </ul>
+        </div>
+    </li>
 </ul>
 <div class="tabcontents">
     <!-- Personal Info -->
     <div id="view1">
-        <div class="contianer-fluid">
+        <div class="contianer-fluid center">
             <div class="row">
                 <div class="col-xs-3">
                     <label for="firstName">First Name</label>
@@ -32,18 +45,18 @@
                     <label for="lastName">Last Name</label>
                 </div>
                 <div class="col-xs-2">
-                    <label for="over18">Over 18?</label>
+                    <label for="over18">Over 18</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="firstName" />
+                    <input type="text" id="firstName" data-bind="value: FirstName" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="lastName" />
+                    <input type="text" id="lastName" data-bind="value: LastName" required />
                 </div>
                 <div class="col-xs-2">
-                    <input type="checkbox" id="over18" />
+                    <input type="checkbox" id="over18" data-bind="checked: Over18" />
                 </div>
             </div>
             <div class="row">
@@ -59,13 +72,13 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="streetAddress" />
+                    <input type="text" id="streetAddress" data-bind="value: Street" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="City" />
+                    <input type="text" id="City" data-bind="value: City" required />
                 </div>
                 <div class="col-xs-2">
-                    <select id="State" data-bind="options: listOfStates"></select>
+                    <select id="State" data-bind="options: listOfStates, value: State"></select>
                 </div>
             </div>
             <div class="row">
@@ -78,18 +91,119 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="mobilePhone" />
+                    <input type="text" id="mobilePhone" data-bind="value: MobilePhone" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="homePhone" />
+                    <input type="text" id="homePhone" data-bind="value: HomePhone" />
                 </div>
             </div>
         </div>
     </div>
     <!-- Employment Info -->
     <div id="view2">
-        content 2
+        <div class="container-fluid center">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Days Available</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="employmentDesired">Employment Type</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="hoursWeekly">Hours Available Per Week</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="selectAll round-button" value="All" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Mon" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Tue" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="btn-group-sm">
+                        <input type="button" id="FullTime" class="btn btn-default active" value="Full" />
+                        <input type="button" id="PartTime" class="btn btn-default" value="Part" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Wed" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Thr" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Fri" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Sat" />
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div class="dates">
+                        <input type="button" class="buttonDays round-button" value="Sun" />
+                    </div>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <label for="workNight">Can You Work Nights</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="beenFired">Have You Been Fired Before</label>
+                </div>
+                <div class="col-xs-3">
+                    <label for="dateAvailable">Date Available</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="btn-group-sm">
+                        <input type="button" id="NightsYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" id="NightsNo" class="btn btn-default" value="No" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="btn-group-sm">
+                        <input type="button" id="FiredYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" id="FiredNo" class="btn btn-default" value="No" />
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" id="dateAvailableEmployment" class="datepicker" value="Select Date..." maxlength="10" data-bind="value: DateAvailable" required />
+                </div>
+            </div>
+        </div>
     </div>
+          
     <!-- Work Experience -->
     <div id="view3">
         <div class="contianer-fluid">
@@ -103,29 +217,136 @@
                     <input type="button" id="addMilitaryExp" value="Add Military Record" class="btn btn-primary" />
                 </div>
             </div>
+            
+            <div class="row center top-buffer" data-bind="visible: employers().length > 0">
+                <div class="col-xs-2">
+                    <b>Employer Name</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer Street</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer City</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Employer State</b>
+                </div>
+            </div>
+            <!-- ko foreach: employers -->
+                <div class="row center">
+                    <div class="col-xs-2" data-bind="text: name"></div>
+                    <div class="col-xs-2" data-bind="text: street"></div>
+                    <div class="col-xs-2" data-bind="text: city"></div>
+                    <div class="col-xs-2" data-bind="text: state"></div>
+                    <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEmployer"></i>
+                </div>
+            <!-- /ko -->
+            
+            <div class="row center top-buffer" data-bind="visible: militaryExp().length > 0">
+                <div class="col-xs-2">
+                    <b>Military Branch</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Years Served</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>In the Reserve?</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Honorably Discharge</b>
+                </div>
+            </div>
+            <!-- ko foreach: militaryExp -->
+            <div class="row center">
+                <div class="col-xs-2" data-bind="text: branch"></div>
+                <div class="col-xs-2" data-bind="text: years"></div>
+                <div class="col-xs-2">
+                    <input type="checkbox" disabled="disabled" data-bind="checked: reserve" />
+                </div>
+                <div class="col-xs-2">
+                    <input type="checkbox" disabled="disabled" data-bind="checked: discharge" />
+                </div>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeMilitaryExp"></i>
+            </div>
+            <!-- /ko -->
         </div>
     </div>
     <!-- References -->
     <div id="view4">
         <div class="contianer-fluid">
             <div class="row">
-                <div class="col-xs-5">
-                </div>
+                <div class="col-xs-5"></div>
                 <div>
                     <input type="button" id="addReference" value="Add Reference" class="btn btn-primary" />
                 </div>
             </div>
+            
+            <div class="row center top-buffer" data-bind="visible: references().length > 0">
+                <div class="col-xs-2">
+                    <b>Reference Name</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Reference Company</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Reference Phone</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Reference Email</b>
+                </div>
+            </div>
+            <!-- ko foreach: references -->
+            <div class="row center">
+                <div class="col-xs-2" data-bind="text: name"></div>
+                <div class="col-xs-2" data-bind="text: company"></div>
+                <div class="col-xs-2" data-bind="text: phone"></div>
+                <div class="col-xs-2" data-bind="text: email"></div>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeReference"></i>
+            </div>
+            <!-- /ko -->
         </div>
     </div>
     <!-- Education -->
     <div id="view5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-5"></div>
+                <div>
+                    <input type="button" id="addEducation" value="Add Education" class="btn btn-primary" />
+                </div>
+            </div>
+            
+            <div class="row center top-buffer" data-bind="visible: education().length > 0">
+                <div class="col-xs-2">
+                    <b>School Name</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>School Type</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Date Graduated</b>
+                </div>
+                <div class="col-xs-2">
+                    <b>Degree Earned</b>
+                </div>
+            </div>
+            <!-- ko foreach: education -->
+            <div class="row center">
+                <div class="col-xs-2" data-bind="text: schoolName"></div>
+                <div class="col-xs-2" data-bind="text: schoolType"></div>
+                <div class="col-xs-2" data-bind="text: gradDate"></div>
+                <div class="col-xs-2" data-bind="text: majorDegCert"></div>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEducation"></i>
+            </div>
+            <!-- /ko -->
+        </div>
     </div>
 </div>
 
 <!-- Add Work Exp Modal -->
 <div id="addWorkExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -144,13 +365,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerName" />
+                            <input type="text" id="employerName" class="form-control" data-bind="value: employerName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEmail" />
+                            <input type="text" id="employerEmail" class="form-control" data-bind="value: employerEmail" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="checkbox" id="employerCanContact" />
+                            <input type="checkbox" id="employerCanContact" data-bind="checked: employerCanContact" />
                         </div>
                     </div>
 
@@ -167,13 +388,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStreet" />
+                            <input type="text" id="employerStreet" class="form-control" data-bind="value: employerStreet" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerCity" />
+                            <input type="text" id="employerCity" class="form-control" data-bind="value: employerCity" required />
                         </div>
                         <div class="col-xs-4">
-                            <select id="employerState" data-bind="options: listOfStates"></select>
+                            <select id="employerState" class="form-control" data-bind="options: listOfStates, value: employerState"></select>
                         </div>
                     </div>
 
@@ -187,10 +408,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerLastBoss" />
+                            <input type="text" id="employerLastBoss" class="form-control" data-bind="value: employerPrevBoss" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerPhone" />
+                            <input type="text" id="employerPhone" class="form-control" data-bind="value: employerPhone" />
                         </div>
                     </div>
 
@@ -204,10 +425,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStartDate" class="datepicker" />
+                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker form-control" maxlength="10" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEndDate" class="datepicker" />
+                            <input type="text" id="employerEndDate"  data-bind="value: employerEndDate" class="datepicker form-control" maxlength="10" required />
                         </div>
                     </div>
 
@@ -218,64 +439,70 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <textarea id="employerDuties" style="resize: none"></textarea>
+                            <textarea id="employerDuties" data-bind="value: employerDuties" style="resize: none"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn" data-bind="click: addEmployer" data-dismiss="modal" aria-hidden="true" id="saveWorkExp">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Military Exp Modal -->
 <div id="addMilitaryExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
             <div class="modal-body">
-                <div class="contianer-fluid">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="yearsInMilitary">Years In Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="militaryBranch">Branch of Military</label>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <label for="inReserve">Reserve?</label>
+                        </div>
+                        <div>
+                            <label for="honorableDischarge">Honorable Discharge</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4">
-                            <input type="number" id="yearsInMilitary" min="1" max="100" />
+                        <div class="col-xs-3">
+                            <input type="number" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100" required />
                         </div>
-                        <div class="col-xs-4">
-                            <select id="militaryBranch" data-bind="options: militaryBranches"></select>
+                        <div class="col-xs-3">
+                            <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches, value: militaryBranch"></select>
                         </div>
-                        <div class="col-xs-4">
-                            <input type="checkbox" id="inReserve" />
+                        <div class="col-xs-3">
+                            <input type="checkbox" id="inReserve" data-bind="checked: inReserve" />
+                        </div>
+                        <div>
+                            <input type="checkbox" id="honorableDischarge" data-bind="checked: honorableDischarge" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- Add Reference Modal -->
 <div id="addReferenceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="model-content">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -294,13 +521,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceName" />
+                            <input type="text" id="referenceName" class="form-control" data-bind="value: referenceName" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceTitle" />
+                            <input type="text" id="referenceTitle" class="form-control" data-bind="value: referenceTitle" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCompany" />
+                            <input type="text" id="referenceCompany" class="form-control" data-bind="value: referenceCompany" />
                         </div>
                     </div>
 
@@ -317,13 +544,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceStreetAddress" />
+                            <input type="text" id="referenceStreetAddress" class="form-control" data-bind="value: referenceStreet" />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceCity" />
+                            <input type="text" id="referenceCity" class="form-control" data-bind="value: referenceCity" />
                         </div>
                         <div class="col-xs-4">
-                            <select class="referenceState" data-bind="options: listOfStates"></select>
+                            <select class="referenceState form-control" data-bind="options: listOfStates, value: referenceState"></select>
                         </div>
                     </div>
 
@@ -337,17 +564,111 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referencePhone" />
+                            <input type="text" id="referencePhone" class="form-control" data-bind="value: referencePhone" required />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceEmail" />
+                            <input type="text" id="referenceEmail" class="form-control" data-bind="value: referenceEmail" required />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Add Education Modal-->
+<div id="addEducationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+            </div>
+            <div class="modal-body">
+                <div class="contianer-fluid">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="schoolType">School Type</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="schoolName">School Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <select id="schoolType" class="form-control" data-bind="options: schoolTypes, value: schoolType"></select>
+                        </div>
+                        <div class="col-xs-4">
+                            <input id="schoolName" class="form-control" data-bind="value: schoolName" type="text" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="schoolCity">City</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="schoolState">State</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" data-bind="value: schoolCity" id="schoolCity" />
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="schoolState" class="form-control" data-bind="options: listOfStates, value: schoolState"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="gradDate">Graduation Date</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="majorDegCert">Major/Degree/Cert</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" id="gradDate" data-bind="value: graduationDate" class="datepicker form-control" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" id="majorDegCert" data-bind="value: majorDegCert" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Application Submission Modal-->
+<div id="applicationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Application Terms</h4>
+                </div>
+                <div class="modal-body">
+                    <p>TO GET A JOB WITH US, I AGREE THAT:</p>
+                    <p>EVEN IF WE LOOK AT YOUR JOB APPLICATION OR OFFER YOU A JOB, IT WILL NOT MEAN THAT YOU WILL BE HIRED. IF YOU ARE HIRED IT DOES NOT MEAN IT IS PERMANENT UNLESS OUR PRESIDENT SAYS IT IS. WE CAN END YOUR EMPLOYMENT AT ANY TIME WITHOUT NOTICE. IF WE DO HIRE YOU, THE RULES CAN CHANGE</p>
+                    <p>I ALLOW YOU TO CHECK ALL INFO I PUT ON THIS APPLICATION. IF I LIE IT CAN KEEP ME FROM GETTING THE JOB. I ALLOW YOU TO TALK TO MY SCHOOL, PREVIOUS BOSSES, AND REFERENCES. I AGREE THAT UNFINISHED BUSINESS WILL NOT GET IN TROUBLE FOR TALKING TO THEM.</p>
+                    <p>I AGREE TO GET DRUG TESTED BEFORE AND AFTER I GET THE JOB. IF I DO NOT GET DRUG TESTED I WILL NOT GET THE JOB. IF I FAIL THE DRUG TEST I WILL LOSE MY JOB.</p>
+                    <p>I UNDERSTAND THAT MY CREDIT, CHARACTER, AND REPUTATION WILL BE LOOKED AT BEFORE GETTING THE JOB. IF WE FIND ANYTHING THAT WE DO NOT LIKE, WE WILL HAVE YOU EXPLAIN IT TO US AS REQUIRED BY THE FAIR CREDIT REPORTING ACT.</p>
+                    <p>DURING THE FIRST 60 DAYS ON THE JOB, WE CAN END YOUR EMPLOYMENT WITHOUT ANY REASON. YOU CAN ALSO LEAVE THE JOB DURING THE FIRST 60 DAYS WITHOUT ANY REASON.
+                    &hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>

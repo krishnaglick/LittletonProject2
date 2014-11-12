@@ -53,6 +53,61 @@ c:\users\n0078_000\documents\visual studio 2013\Projects\LittletonProject2\Littl
 c:\users\n0078_000\documents\visual studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 c:\users\n0078_000\documents\visual studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
 c:\users\n0078_000\documents\visual studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll.config
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\LittletonProject2.pdb
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Antlr3.Runtime.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\EntityFramework.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\EntityFramework.SqlServer.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Newtonsoft.Json.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Owin.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Helpers.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Mvc.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Optimization.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Razor.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\WebGrease.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Antlr3.Runtime.pdb
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Newtonsoft.Json.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Helpers.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Mvc.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Razor.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\System.Web.Optimization.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\EntityFramework.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\EntityFramework.SqlServer.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
+C:\Users\Ciroc\Documents\GitHub\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll.config
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\LittletonProject2.pdb
@@ -82,29 +137,29 @@ C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\Litt
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Razor.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\WebGrease.dll
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Antlr3.Runtime.pdb
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Newtonsoft.Json.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.Helpers.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.Mvc.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.Optimization.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.Razor.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.WebPages.Razor.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Antlr3.Runtime.pdb
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Newtonsoft.Json.xml
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\System.Web.Optimization.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\EntityFramework.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\EntityFramework.SqlServer.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
