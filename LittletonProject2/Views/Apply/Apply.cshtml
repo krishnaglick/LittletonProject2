@@ -22,13 +22,13 @@
     <li><a href="#view5">Education</a></li>
     <li>
         <div class="btn-group">
-            <button type="button" id="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <button type="button" id="submit" class="btn btn-sm btn-primary submitButton">Save</button>
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Load</a></li>
+                <li><a style="margin-top: -5px; margin-bottom: -20px;" id="loadButton" href="#">Load</a></li>
             </ul>
         </div>
     </li>
@@ -238,7 +238,7 @@
                     <div class="col-xs-2" data-bind="text: street"></div>
                     <div class="col-xs-2" data-bind="text: city"></div>
                     <div class="col-xs-2" data-bind="text: state"></div>
-                    <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeEmployer($parent, $data) }"></i>
+                    <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEmployer"></i>
                 </div>
             <!-- /ko -->
             
@@ -266,7 +266,7 @@
                 <div class="col-xs-2">
                     <input type="checkbox" disabled="disabled" data-bind="checked: discharge" />
                 </div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeMilitaryExp($parent, $data) }"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeMilitaryExp"></i>
             </div>
             <!-- /ko -->
         </div>
@@ -301,7 +301,7 @@
                 <div class="col-xs-2" data-bind="text: company"></div>
                 <div class="col-xs-2" data-bind="text: phone"></div>
                 <div class="col-xs-2" data-bind="text: email"></div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeReference($parent, $data) }"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeReference"></i>
             </div>
             <!-- /ko -->
         </div>
@@ -336,7 +336,7 @@
                 <div class="col-xs-2" data-bind="text: schoolType"></div>
                 <div class="col-xs-2" data-bind="text: gradDate"></div>
                 <div class="col-xs-2" data-bind="text: majorDegCert"></div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: function() { $parent.removeEducation($parent, $data) }"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEducation"></i>
             </div>
             <!-- /ko -->
         </div>

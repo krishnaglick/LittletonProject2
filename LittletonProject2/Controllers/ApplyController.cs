@@ -28,6 +28,18 @@ namespace LittletonProject2.Controllers
         public ActionResult GetSchoolTypes()
         {
             return Json(SchoolType.GetSchoolTypes(), JsonRequestBehavior.AllowGet);
-        } 
+        }
+
+        [HttpPost]
+        public ActionResult LoadData(string id)
+        {
+            return Json(new ApplicationInteraction().LoadApplication(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult SaveData(string Application)
+        {
+            return Json(new ApplicationInteraction().SaveApplication(Application), JsonRequestBehavior.AllowGet);
+        }
     }
 }

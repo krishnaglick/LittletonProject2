@@ -1,7 +1,7 @@
 ﻿//When document is ready, run what's in this block
+var apply_view_model = new ApplyViewModel();
 $(function () {
     //Set up the viewmodel
-    var apply_view_model = new ApplyViewModel();
     ko.applyBindings(apply_view_model);
     apply_view_model.getStates();
     apply_view_model.getMilitaryBranches();
@@ -80,6 +80,48 @@ $(function () {
         $('#FiredYes').removeClass('active');
         $('#FiredNo').addClass('active');
         apply_view_model.FiredBefore(false);
+    })
+
+    //Submit Button
+    $('.submitButton').click(function () {
+        $.post("/Apply/SaveData", { 'Application': ko.toJSON(apply_view_model) }, function (data) {
+            alert("Your application id is: " + data
+              + ". Please keep this in your records.");
+        });
+
+        /*var Application = ko.toJSON(apply_view_model);
+        
+        $.ajax({
+            type: "POST",
+            url: '/Apply/SaveData',
+            dataType: "JSON",
+            contentType: 'application/json; charset=utf-8',
+            data: {'Application': Application},
+            success: function (data) {
+                alert("Your application id is: " + data
+                  + ". Please keep this in your records.");
+            },
+            error: function (data) {
+                alert("Failure, please alert sysadmin.");
+            }
+        });*/
+    })
+
+    //Load Button
+    $('#loadButton').click(function () {
+        $.ajax({
+            type: "POST",
+            url: '/Apply/LoadData',
+            dataType: "JSON",
+            data: "[1]",
+            success: function (data) {
+                alert("Your application id is: " + data
+                  + ". Please keep this in your records.");
+            },
+            error: function (data) {
+                alert("Failure, please alert sysadmin.");
+            }
+        });
     })
 
     applyValidation();
