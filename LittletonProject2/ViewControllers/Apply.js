@@ -49,6 +49,10 @@ $(function () {
     $('#addEducation').click(function () {
         $('#addEducationModal').modal();
     })
+    //Shows application terms modal 
+    $('#submit').click(function () {
+        $('#applicationModal').modal();
+    })
 
     //Button toggling cause bootstrap don't do that shit on its own
     $('#FullTime').click(function () {
@@ -81,9 +85,9 @@ $(function () {
         $('#FiredNo').addClass('active');
         apply_view_model.FiredBefore(false);
     })
-
+    
     //Submit Button
-    $('.submitButton').click(function () {
+    $('#submitAppButton').click(function () {
         $.post("/Apply/SaveData", { 'Application': ko.toJSON(apply_view_model) }, function (data) {
             alert("Your application id is: " + data
               + ". Please keep this in your records.");
