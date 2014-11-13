@@ -157,10 +157,11 @@ function applyValidation() {
     new LiveValidation('City').add(Validate.Presence);
     new LiveValidation('streetAddress').add(Validate.Presence);
     new LiveValidation('mobilePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
-    new LiveValidation('homePhone').add(Validate.Presence).add(Validate.Format, { pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i });
+    
     
     //LiveValidation for Employment Info 
-    new LiveValidation('dateAvailableEmployment').add(Validate.Presence).add(Validate.Format, { pattern: /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/i});
+    new LiveValidation('dateAvailableEmployment').add(Validate.Presence).add(Validate.Format, { pattern: /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/i });
+    new LiveValidation('dateAvaliableEmployment').add(Validate.Presence);
 
     //LiveValidation for AddEmployer Modal
     new LiveValidation('employerName').add(Validate.Presence);
