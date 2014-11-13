@@ -1,4 +1,5 @@
 ﻿var ApplyViewModel = function () {
+    var self = this;
     //Stuff used from pullback
     this.listOfStates = ko.observableArray([]);
     this.militaryBranches = ko.observableArray([]);
@@ -20,12 +21,58 @@
     this.HomePhone = ko.observable();
 
     //Employment Info
-    this.DaysAvailable = ko.observableArray([]);
-    this.EmploymentType = ko.observable("Full Time");
     this.HoursAvailable = ko.observable(40);
-    this.WorkNights = ko.observable(false);
+
+    this.EmploymentType = ko.observable(true);
+    this.EmpTypeStling = ko.computed(function () {
+        $('#FullTime').toggleClass('active', self.EmploymentType());
+        $('#PartTime').toggleClass('active', !self.EmploymentType());
+    });
+
+    this.WorkNights = ko.observable(true);
+    this.WorkNightsStyling = ko.computed(function () {
+        $('#NightsYes').toggleClass('active', self.WorkNights());
+        $('#NightsNo').toggleClass('active', !self.WorkNights());
+    });
+
     this.FiredBefore = ko.observable(false);
+    this.FiredBeforeStyling = ko.computed(function () {
+        $('#FiredYes').toggleClass('active', self.FiredBefore());
+        $('#FiredNo').toggleClass('active', !self.FiredBefore());
+    });
+
     this.DateAvailable = ko.observable();
+
+    this.availableMonday = ko.observable(false);
+    this.availableTuesday = ko.observable(false);
+    this.availableWednesday = ko.observable(false);
+    this.availableThursday = ko.observable(false);
+    this.availableFriday = ko.observable(false);
+    this.availableSaturday = ko.observable(false);
+    this.availableSunday = ko.observable(false);
+
+    this.daysAvailable = ko.computed(function () {
+        $('div.dates input:button[value="Mon"]').toggleClass('round-button-selected', self.availableMonday());
+        $('div.dates input:button[value="Tue"]').toggleClass('round-button-selected', self.availableTuesday());
+        $('div.dates input:button[value="Wed"]').toggleClass('round-button-selected', self.availableWednesday());
+        $('div.dates input:button[value="Thr"]').toggleClass('round-button-selected', self.availableThursday());
+        $('div.dates input:button[value="Fri"]').toggleClass('round-button-selected', self.availableFriday());
+        $('div.dates input:button[value="Sat"]').toggleClass('round-button-selected', self.availableSaturday());
+        $('div.dates input:button[value="Sun"]').toggleClass('round-button-selected', self.availableSunday());
+    });
+
+    this.allAvailableTracker = ko.observable(false);
+    this.allAvailable = function () {
+        self.availableMonday(self.allAvailableTracker());
+        self.availableTuesday(self.allAvailableTracker());
+        self.availableWednesday(self.allAvailableTracker());
+        self.availableThursday(self.allAvailableTracker());
+        self.availableFriday(self.allAvailableTracker());
+        self.availableSaturday(self.allAvailableTracker());
+        self.availableSunday(self.allAvailableTracker());
+        self.allAvailableTracker(!self.allAvailableTracker());
+    };
+
 
     //Military Modal
     this.militaryYears = ko.observable();
@@ -65,13 +112,12 @@
     this.majorDegCert = ko.observable();
 
     this.getStates = function () {
-        
         $.ajax({
             type: "GET",
             url: '/Apply/GetStates',
             dataType: "JSON",
             success: function (data) {
-                apply_view_model.listOfStates(data);
+                self.listOfStates(data);
             },
             error: function (data) {
                 console.log("Failure, please alert sysadmin.");
@@ -80,13 +126,12 @@
     }
 
     this.getMilitaryBranches = function () {
-        
         $.ajax({
             type: "GET",
             url: '/Apply/GetMilitaryBranches',
             dataType: "JSON",
             success: function (data) {
-                apply_view_model.militaryBranches(data);
+                self.militaryBranches(data);
             },
             error: function (data) {
                 console.log("Failure, please alert sysadmin.");
@@ -95,13 +140,12 @@
     }
 
     this.getSchoolTypes = function () {
-        
         $.ajax({
             type: "GET",
             url: '/Apply/GetSchoolTypes',
             dataType: "JSON",
             success: function (data) {
-                apply_view_model.schoolTypes(data);
+                self.schoolTypes(data);
             },
             error: function (data) {
                 console.log("Failure, please alert sysadmin.");
@@ -109,25 +153,25 @@
         });
     }
 
-    this.addEmployer = function (event) {
+    this.addEmployer = function () {
         if ($('#addWorkExpModal').find(':invalid').length > 0)
             return false;
 
-        if (!(checkDates(apply_view_model.employerStartDate(), apply_view_model.employerEndDate())))
+        if (!(checkDates(self.employerStartDate(), self.employerEndDate())))
             return false;
 
-        apply_view_model.employers.push({
-            name: apply_view_model.employerName(),
-            email: apply_view_model.employerEmail(),
-            canContact: apply_view_model.employerCanContact(),
-            street: apply_view_model.employerStreet(),
-            city: apply_view_model.employerCity(),
-            state: apply_view_model.employerState(),
-            boss: apply_view_model.employerPrevBoss(),
-            phone: apply_view_model.employerPhone(),
-            startDate: apply_view_model.employerStartDate(),
-            endDate: apply_view_model.employerEndDate(),
-            duties: apply_view_model.employerDuties()
+        self.employers.push({
+            name: self.employerName(),
+            email: self.employerEmail(),
+            canContact: self.employerCanContact(),
+            street: self.employerStreet(),
+            city: self.employerCity(),
+            state: self.employerState(),
+            boss: self.employerPrevBoss(),
+            phone: self.employerPhone(),
+            startDate: self.employerStartDate(),
+            endDate: self.employerEndDate(),
+            duties: self.employerDuties()
         });
 
         $('#addWorkExpModal').modal('hide');
@@ -138,11 +182,11 @@
             return false;
 
         
-        apply_view_model.militaryExp.push({
-            years: apply_view_model.militaryYears(),
-            branch: apply_view_model.militaryBranch(),
-            reserve: apply_view_model.inReserve(),
-            discharge: apply_view_model.honorableDischarge()
+        self.militaryExp.push({
+            years: self.militaryYears(),
+            branch: self.militaryBranch(),
+            reserve: self.inReserve(),
+            discharge: self.honorableDischarge()
         });
 
         $('#addMilitaryExpModal').modal('hide');
@@ -153,15 +197,15 @@
             return false;
 
         
-        apply_view_model.references.push({
-            name: apply_view_model.referenceName(),
-            title: apply_view_model.referenceTitle(),
-            company: apply_view_model.referenceCompany(),
-            street: apply_view_model.referenceStreet(),
-            city: apply_view_model.referenceCity(),
-            state: apply_view_model.referenceState(),
-            phone: apply_view_model.referencePhone(),
-            email: apply_view_model.referenceEmail()
+        self.references.push({
+            name: self.referenceName(),
+            title: self.referenceTitle(),
+            company: self.referenceCompany(),
+            street: self.referenceStreet(),
+            city: self.referenceCity(),
+            state: self.referenceState(),
+            phone: self.referencePhone(),
+            email: self.referenceEmail()
         });
 
         $('#addReferenceModal').modal('hide');
@@ -171,31 +215,31 @@
         if ($('#addEducationModal').find(':invalid').length > 0)
             return false;
         
-        apply_view_model.education.push({
-            schoolType: apply_view_model.schoolType(),
-            schoolName: apply_view_model.schoolName(),
-            schoolCity: apply_view_model.schoolCity(),
-            schoolState: apply_view_model.schoolState(),
-            gradDate: apply_view_model.graduationDate(),
-            majorDegCert: apply_view_model.majorDegCert()
+        self.education.push({
+            schoolType: self.schoolType(),
+            schoolName: self.schoolName(),
+            schoolCity: self.schoolCity(),
+            schoolState: self.schoolState(),
+            gradDate: self.graduationDate(),
+            majorDegCert: self.majorDegCert()
         });
 
         $('#addEducationModal').modal('hide');
     }
 
     this.removeEmployer = function () {
-        apply_view_model.employers.remove(this);
+        self.employers.remove(this);
     }
 
     this.removeMilitaryExp = function (viewModel, data) {
-        apply_view_model.militaryExp.remove(this);
+        self.militaryExp.remove(this);
     }
 
     this.removeReference = function (viewModel, data) {
-        apply_view_model.references.remove(this);
+        self.references.remove(this);
     }
 
     this.removeEducation = function (viewModel, data) {
-        apply_view_model.education.remove(this);
+        self.education.remove(this);
     }
 }

@@ -117,23 +117,23 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="selectAll round-button" value="All" />
+                        <input type="button" data-bind="click: allAvailable" class="selectAll round-button" value="All" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Mon" />
+                        <input type="button" data-bind="click: function() {availableMonday(!availableMonday())}" class="buttonDays round-button" value="Mon" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Tue" />
+                        <input type="button" data-bind="click: function() {availableTuesday(!availableTuesday())}" class="buttonDays round-button" value="Tue" />
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="FullTime" class="btn btn-default active" value="Full" />
-                        <input type="button" id="PartTime" class="btn btn-default" value="Part" />
+                        <input type="button" id="FullTime" data-bind="click: function() {EmploymentType(true)}" class="btn btn-default active" value="Full" />
+                        <input type="button" id="PartTime" data-bind="click: function() {EmploymentType(false)}" class="btn btn-default" value="Part" />
                     </div>
                 </div>
                 <div class="col-xs-3">
@@ -144,17 +144,17 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Wed" />
+                        <input type="button" data-bind="click: function() {availableWednesday(!availableWednesday())}" class="buttonDays round-button" value="Wed" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Thr" />
+                        <input type="button" data-bind="click: function() {availableThursday(!availableThursday())}" class="buttonDays round-button" value="Thr" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Fri" />
+                        <input type="button" data-bind="click: function() {availableFriday(!availableFriday())}" class="buttonDays round-button" value="Fri" />
                     </div>
                 </div>
             </div>
@@ -162,12 +162,12 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Sat" />
+                        <input type="button" data-bind="click: function() {availableSaturday(!availableSaturday())}" class="buttonDays round-button" value="Sat" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Sun" />
+                        <input type="button" data-bind="click: function() {availableSunday(!availableSunday())}" class="buttonDays round-button" value="Sun" />
                     </div>
                 </div>
             </div>
@@ -187,14 +187,14 @@
             <div class="row">
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="NightsYes" class="btn btn-default active" value="Yes" />
-                        <input type="button" id="NightsNo" class="btn btn-default" value="No" />
+                        <input type="button" data-bind="click: function() {WorkNights(true)}" id="NightsYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" data-bind="click: function() {WorkNights(false)}" id="NightsNo" class="btn btn-default" value="No" />
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="FiredYes" class="btn btn-default active" value="Yes" />
-                        <input type="button" id="FiredNo" class="btn btn-default" value="No" />
+                        <input type="button" data-bind="click: function() {FiredBefore(true)}" id="FiredYes" class="btn btn-default" value="Yes" />
+                        <input type="button" data-bind="click: function() {FiredBefore(false)}" id="FiredNo" class="btn btn-default active" value="No" />
                     </div>
                 </div>
                 <div class="col-xs-3">

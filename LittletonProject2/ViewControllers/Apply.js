@@ -15,7 +15,7 @@ $(function () {
     });
 
     //Pick days of week you can work
-    $('.buttonDays').click(function () {
+    /*$('.buttonDays').click(function () {
         $(this).toggleClass('round-button-selected');
         if ($(this).hasClass('round-button-selected'))
             apply_view_model.DaysAvailable.push($(this).val());
@@ -34,7 +34,7 @@ $(function () {
             $('.buttonDays').removeClass('round-button-selected');
             allTracker = true;
         }
-    });
+    });*/
 
     //Setup modal popping up
     $('#addWorkExp').click(function () {
@@ -55,16 +55,6 @@ $(function () {
     })
 
     //Button toggling cause bootstrap don't do that shit on its own
-    $('#FullTime').click(function () {
-        $('#FullTime').addClass('active');
-        $('#PartTime').removeClass('active');
-        apply_view_model.EmploymentType("Full Time");
-    })
-    $('#PartTime').click(function () {
-        $('#FullTime').removeClass('active');
-        $('#PartTime').addClass('active');
-        apply_view_model.EmploymentType("Part Time");
-    })
     $('#NightsYes').click(function () {
         $('#NightsYes').addClass('active');
         $('#NightsNo').removeClass('active');
