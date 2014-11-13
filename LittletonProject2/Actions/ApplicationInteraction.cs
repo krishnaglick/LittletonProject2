@@ -9,25 +9,32 @@ namespace LittletonProject2.Actions
 {
     public class ApplicationInteraction
     {
-        public string SaveApplication(string Application)
+        public Guid SaveApplication(string Application)
         {
-            var appmodel = new ApplyModel();
-            string id = new Utilities().RandStr(16);
-
-            appmodel.id = id;
-            appmodel.ApplicationData = Application;
-
             ApplyModelContext amc = new ApplyModelContext();
+            var appmodel = new ApplyModel();
+            
+            appmodel.ApplicationData = Application;
 
             amc.ApplyModels.Add(appmodel);
             amc.SaveChanges();
 
-            return id;
+            return appmodel.id;
         }
 
-        public string LoadApplication(string id)
+        public String LoadApplication(Guid id)
         {
-            return new ApplyModelContext().ApplyModels.Where(a => a.id == id).ToList()[0].ApplicationData;
+            return new ApplyModelContext().ApplyModels.Find(id).ApplicationData;
+        }
+
+        public void DeleteApplication(Guid id)
+        {
+            new ApplyModelContext().ApplyModels.Remove(new ApplyModelContext().ApplyModels.Find(id));
+        }
+
+        public void DeleteApplications()
+        {
+            new ApplyModelContext().ApplyModels.RemoveRange(new ApplyModelContext().ApplyModels.ToList());
         }
     }
 }

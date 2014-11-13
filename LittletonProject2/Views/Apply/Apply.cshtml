@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Job Application";
 }
 @Scripts.Render("~/Scripts/jquery-ui.min-1.11.1.js")
 @Scripts.Render("~/Scripts/knockout.js")
@@ -7,6 +8,7 @@
 @Scripts.Render("~/Scripts/livevalidation_standalone.js")
 @Scripts.Render("~/ViewModels/ApplyViewModel.js")
 @Scripts.Render("~/ViewControllers/Apply.js")
+
 @Styles.Render("~/Content/tabcontent.css")
 @Styles.Render("~/Content/Apply.css")
 @Styles.Render("~/Content/jquery-ui.min.css")
@@ -22,13 +24,13 @@
     <li><a href="#view5">Education</a></li>
     <li>
         <div class="btn-group">
-            <button type="button" id="submit" class="btn btn-sm btn-primary submitButton">Save</button>
+            <button type="button" id="saveAppModal" class="btn btn-sm btn-primary submitButton">Save</button>
             <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a style="margin-top: -5px; margin-bottom: -20px;" id="loadButton" href="#">Load</a></li>
+                <li><a style="margin-top: -5px; margin-bottom: -20px;" id="loadAppModal" href="#">Load</a></li>
             </ul>
         </div>
     </li>
@@ -50,10 +52,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="firstName" data-bind="value: FirstName" required />
+                    <input type="text" id="firstName" data-bind="value: FirstName"  />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="lastName" data-bind="value: LastName" required />
+                    <input type="text" id="lastName" data-bind="value: LastName"  />
                 </div>
                 <div class="col-xs-2">
                     <input type="checkbox" id="over18" data-bind="checked: Over18" />
@@ -72,10 +74,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="streetAddress" data-bind="value: Street" required />
+                    <input type="text" id="streetAddress" data-bind="value: Street"  />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="City" data-bind="value: City" required />
+                    <input type="text" id="City" data-bind="value: City"  />
                 </div>
                 <div class="col-xs-2">
                     <select id="State" data-bind="options: listOfStates, value: State"></select>
@@ -91,7 +93,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" id="mobilePhone" data-bind="value: MobilePhone" required />
+                    <input type="text" id="mobilePhone" data-bind="value: MobilePhone"  />
                 </div>
                 <div class="col-xs-3">
                     <input type="text" id="homePhone" data-bind="value: HomePhone" />
@@ -117,44 +119,44 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="selectAll round-button" value="All" />
+                        <input type="button" onclick="toggleDaysAvail()" class="selectAll round-button" value="All" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Mon" />
+                        <input type="button" data-bind="click: function() {availableMonday(!availableMonday())}" class="buttonDays round-button" value="Mon" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Tue" />
+                        <input type="button" data-bind="click: function() {availableTuesday(!availableTuesday())}" class="buttonDays round-button" value="Tue" />
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="FullTime" class="btn btn-default active" value="Full" />
-                        <input type="button" id="PartTime" class="btn btn-default" value="Part" />
+                        <input type="button" id="FullTime" data-bind="click: function() {EmploymentType(true)}" class="btn btn-default active" value="Full" />
+                        <input type="button" id="PartTime" data-bind="click: function() {EmploymentType(false)}" class="btn btn-default" value="Part" />
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable" required />
+                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable"  />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Wed" />
+                        <input type="button" data-bind="click: function() {availableWednesday(!availableWednesday())}" class="buttonDays round-button" value="Wed" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Thr" />
+                        <input type="button" data-bind="click: function() {availableThursday(!availableThursday())}" class="buttonDays round-button" value="Thr" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Fri" />
+                        <input type="button" data-bind="click: function() {availableFriday(!availableFriday())}" class="buttonDays round-button" value="Fri" />
                     </div>
                 </div>
             </div>
@@ -162,16 +164,16 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Sat" />
+                        <input type="button" data-bind="click: function() {availableSaturday(!availableSaturday())}" class="buttonDays round-button" value="Sat" />
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="dates">
-                        <input type="button" class="buttonDays round-button" value="Sun" />
+                        <input type="button" data-bind="click: function() {availableSunday(!availableSunday())}" class="buttonDays round-button" value="Sun" />
                     </div>
                 </div>
             </div>
-            <br/>
+            <br />
 
             <div class="row">
                 <div class="col-xs-3">
@@ -187,23 +189,23 @@
             <div class="row">
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="NightsYes" class="btn btn-default active" value="Yes" />
-                        <input type="button" id="NightsNo" class="btn btn-default" value="No" />
+                        <input type="button" data-bind="click: function() {WorkNights(true)}" id="NightsYes" class="btn btn-default active" value="Yes" />
+                        <input type="button" data-bind="click: function() {WorkNights(false)}" id="NightsNo" class="btn btn-default" value="No" />
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="btn-group-sm">
-                        <input type="button" id="FiredYes" class="btn btn-default active" value="Yes" />
-                        <input type="button" id="FiredNo" class="btn btn-default" value="No" />
+                        <input type="button" data-bind="click: function() {FiredBefore(true)}" id="FiredYes" class="btn btn-default" value="Yes" />
+                        <input type="button" data-bind="click: function() {FiredBefore(false)}" id="FiredNo" class="btn btn-default active" value="No" />
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="dateAvailableEmployment" class="datepicker" value="Select Date..." maxlength="10" data-bind="value: DateAvailable" required />
+                    <input type="text" id="dateAvailableEmployment" class="datepicker" value="Select Date..." maxlength="10" data-bind="value: DateAvailable"  />
                 </div>
             </div>
         </div>
     </div>
-          
+
     <!-- Work Experience -->
     <div id="view3">
         <div class="contianer-fluid">
@@ -217,7 +219,7 @@
                     <input type="button" id="addMilitaryExp" value="Add Military Record" class="btn btn-primary" />
                 </div>
             </div>
-            
+
             <div class="row center top-buffer" data-bind="visible: employers().length > 0">
                 <div class="col-xs-2">
                     <b>Employer Name</b>
@@ -233,15 +235,15 @@
                 </div>
             </div>
             <!-- ko foreach: employers -->
-                <div class="row center">
-                    <div class="col-xs-2" data-bind="text: name"></div>
-                    <div class="col-xs-2" data-bind="text: street"></div>
-                    <div class="col-xs-2" data-bind="text: city"></div>
-                    <div class="col-xs-2" data-bind="text: state"></div>
-                    <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEmployer"></i>
-                </div>
+            <div class="row center">
+                <div class="col-xs-2" data-bind="text: name"></div>
+                <div class="col-xs-2" data-bind="text: street"></div>
+                <div class="col-xs-2" data-bind="text: city"></div>
+                <div class="col-xs-2" data-bind="text: state"></div>
+                <i class="glyphicon glyphicon-trash" data-bind="click: function() {removeEmployer($data)}"></i>
+            </div>
             <!-- /ko -->
-            
+
             <div class="row center top-buffer" data-bind="visible: militaryExp().length > 0">
                 <div class="col-xs-2">
                     <b>Military Branch</b>
@@ -253,7 +255,7 @@
                     <b>In the Reserve?</b>
                 </div>
                 <div class="col-xs-2">
-                    <b>Honorably Discharge</b>
+                    <b>Honorably Discharged</b>
                 </div>
             </div>
             <!-- ko foreach: militaryExp -->
@@ -266,7 +268,7 @@
                 <div class="col-xs-2">
                     <input type="checkbox" disabled="disabled" data-bind="checked: discharge" />
                 </div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeMilitaryExp"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: function() {removeMilitaryExp($data)}"></i>
             </div>
             <!-- /ko -->
         </div>
@@ -280,7 +282,7 @@
                     <input type="button" id="addReference" value="Add Reference" class="btn btn-primary" />
                 </div>
             </div>
-            
+
             <div class="row center top-buffer" data-bind="visible: references().length > 0">
                 <div class="col-xs-2">
                     <b>Reference Name</b>
@@ -301,7 +303,7 @@
                 <div class="col-xs-2" data-bind="text: company"></div>
                 <div class="col-xs-2" data-bind="text: phone"></div>
                 <div class="col-xs-2" data-bind="text: email"></div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeReference"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: function() {removeReference($data)}"></i>
             </div>
             <!-- /ko -->
         </div>
@@ -315,7 +317,7 @@
                     <input type="button" id="addEducation" value="Add Education" class="btn btn-primary" />
                 </div>
             </div>
-            
+
             <div class="row center top-buffer" data-bind="visible: education().length > 0">
                 <div class="col-xs-2">
                     <b>School Name</b>
@@ -336,7 +338,7 @@
                 <div class="col-xs-2" data-bind="text: schoolType"></div>
                 <div class="col-xs-2" data-bind="text: gradDate"></div>
                 <div class="col-xs-2" data-bind="text: majorDegCert"></div>
-                <i class="glyphicon glyphicon-trash" data-bind="click: $parent.removeEducation"></i>
+                <i class="glyphicon glyphicon-trash" data-bind="click: function() {removeEducation($data)}"></i>
             </div>
             <!-- /ko -->
         </div>
@@ -346,7 +348,7 @@
 <!-- Add Work Exp Modal -->
 <div id="addWorkExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -365,10 +367,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerName" class="form-control" data-bind="value: employerName" required />
+                            <input type="text" id="employerName" class="form-control" data-bind="value: employerName"  />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEmail" class="form-control" data-bind="value: employerEmail" required />
+                            <input type="text" id="employerEmail" class="form-control" data-bind="value: employerEmail"  />
                         </div>
                         <div class="col-xs-4">
                             <input type="checkbox" id="employerCanContact" data-bind="checked: employerCanContact" />
@@ -388,10 +390,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStreet" class="form-control" data-bind="value: employerStreet" required />
+                            <input type="text" id="employerStreet" class="form-control" data-bind="value: employerStreet"  />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerCity" class="form-control" data-bind="value: employerCity" required />
+                            <input type="text" id="employerCity" class="form-control" data-bind="value: employerCity"  />
                         </div>
                         <div class="col-xs-4">
                             <select id="employerState" class="form-control" data-bind="options: listOfStates, value: employerState"></select>
@@ -408,7 +410,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerLastBoss" class="form-control" data-bind="value: employerPrevBoss" required />
+                            <input type="text" id="employerLastBoss" class="form-control" data-bind="value: employerPrevBoss"  />
                         </div>
                         <div class="col-xs-4">
                             <input type="text" id="employerPhone" class="form-control" data-bind="value: employerPhone" />
@@ -425,10 +427,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker form-control" maxlength="10" required />
+                            <input type="text" id="employerStartDate" data-bind="value: employerStartDate" class="datepicker form-control" maxlength="10"  />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="employerEndDate"  data-bind="value: employerEndDate" class="datepicker form-control" maxlength="10" required />
+                            <input type="text" id="employerEndDate" data-bind="value: employerEndDate" class="datepicker form-control" maxlength="10"  />
                         </div>
                     </div>
 
@@ -446,16 +448,16 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary" data-bind="click: addEmployer" aria-hidden="true" id="saveWorkExp">Save</button>
+                <button class="btn btn-primary" aria-hidden="true" id="saveWorkExp">Save</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
 <!-- Add Military Exp Modal -->
 <div id="addMilitaryExpModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -477,7 +479,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
-                            <input type="number" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100" required />
+                            <input type="number" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100"  />
                         </div>
                         <div class="col-xs-3">
                             <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches, value: militaryBranch"></select>
@@ -493,16 +495,16 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn btn-primary" data-bind="click: addMilitaryExp" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="saveMilitaryExp">Save</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
 <!-- Add Reference Modal -->
 <div id="addReferenceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -521,7 +523,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referenceName" class="form-control" data-bind="value: referenceName" required />
+                            <input type="text" id="referenceName" class="form-control" data-bind="value: referenceName"  />
                         </div>
                         <div class="col-xs-4">
                             <input type="text" id="referenceTitle" class="form-control" data-bind="value: referenceTitle" />
@@ -564,26 +566,26 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <input type="text" id="referencePhone" class="form-control" data-bind="value: referencePhone" required />
+                            <input type="text" id="referencePhone" class="form-control" data-bind="value: referencePhone"  />
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="referenceEmail" class="form-control" data-bind="value: referenceEmail" required />
+                            <input type="text" id="referenceEmail" class="form-control" data-bind="value: referenceEmail"  />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn btn-primary" data-bind="click: addReference" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="saveReference">Save</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
 <!--Add Education Modal-->
 <div id="addEducationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
             </div>
@@ -641,34 +643,52 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn btn-primary" data-bind="click: saveEducation" aria-hidden="true" id="saveEducation">Save</button>
+                <button class="btn btn-primary" aria-hidden="true" id="saveEducation">Save</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
 <!--Application Submission Modal-->
-<div id="applicationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Application Terms</h4>
-                </div>
-                <div class="modal-body">
-                    <p>TO GET A JOB WITH US, I AGREE THAT:</p>
-                    <p>EVEN IF WE LOOK AT YOUR JOB APPLICATION OR OFFER YOU A JOB, IT WILL NOT MEAN THAT YOU WILL BE HIRED. IF YOU ARE HIRED IT DOES NOT MEAN IT IS PERMANENT UNLESS OUR PRESIDENT SAYS IT IS. WE CAN END YOUR EMPLOYMENT AT ANY TIME WITHOUT NOTICE. IF WE DO HIRE YOU, THE RULES CAN CHANGE</p>
-                    <p>I ALLOW YOU TO CHECK ALL INFO I PUT ON THIS APPLICATION. IF I LIE IT CAN KEEP ME FROM GETTING THE JOB. I ALLOW YOU TO TALK TO MY SCHOOL, PREVIOUS BOSSES, AND REFERENCES. I AGREE THAT UNFINISHED BUSINESS WILL NOT GET IN TROUBLE FOR TALKING TO THEM.</p>
-                    <p>I AGREE TO GET DRUG TESTED BEFORE AND AFTER I GET THE JOB. IF I DO NOT GET DRUG TESTED I WILL NOT GET THE JOB. IF I FAIL THE DRUG TEST I WILL LOSE MY JOB.</p>
-                    <p>I UNDERSTAND THAT MY CREDIT, CHARACTER, AND REPUTATION WILL BE LOOKED AT BEFORE GETTING THE JOB. IF WE FIND ANYTHING THAT WE DO NOT LIKE, WE WILL HAVE YOU EXPLAIN IT TO US AS REQUIRED BY THE FAIR CREDIT REPORTING ACT.</p>
-                    <p>DURING THE FIRST 60 DAYS ON THE JOB, WE CAN END YOUR EMPLOYMENT WITHOUT ANY REASON. YOU CAN ALSO LEAVE THE JOB DURING THE FIRST 60 DAYS WITHOUT ANY REASON.
-                    &hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Accept</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
+<div id="applicationSaveModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Application Terms</h4>
+            </div>
+            <div class="modal-body">
+                <p>TO SUBMIT THE APPLICATION, I AGREE THAT:</p>
+                <p>If Unfinished Business looks at your job application or offers you a job, it will not mean that you will be hired. If you are hired it does not mean it is permanent unless our president/manager says it is. We can also end your employment at any time without notice and if we do hire you, the rules/policies may change.</p>
+                <p>I allow Unfinished Business to check all info I put on this application and if I’m dishonest, it can keep me from getting the job. I allow Unfinished Business to speak with my school, previous bosses, and references and agree that Unfinished Business will not get in trouble for talking to them for this reason.</p>
+                <p>I agree to get drug tested before and after I get the job and if I do not get drug tested I will not be considered for the job. If I fail the drug test I will lose my job.</p>
+                <p>I understand that my credit, character, and reputation will be looked at before getting the job and if Unfinished Business finds anything in the report that we do not like, we will have you explain it to us as  by the fair credit reporting act.</p>
+                <p>During the first 60 days on the job, we can end your employment without reason while you can also leave the job during the first 60 days without any reason.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="saveApp" class="btn btn-primary" data-dismiss="modal">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Load App Modal-->
+<div id="applicationLoadModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Load Application</h4>
+            </div>
+            <div class="modal-body">
+                <div>Please enter in your application id.</div>
+                <input type="text" class="form-control" id="appKey" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="loadApp" class="btn btn-primary" data-dismiss="modal">Accept</button>
             </div>
         </div>
     </div>
