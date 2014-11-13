@@ -9,7 +9,7 @@ namespace LittletonProject2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(LittletonProject2.Models.ApplyModelContext context)

@@ -9,7 +9,7 @@ namespace LittletonProject2.Actions
     {
         public static string[] GetSchoolTypes()
         {
-            return new String[] { "High School", "UnderGraduate","Graduate","Post-Graduate","Professional" };
+            return new String[] { "High School", "Under-Graduate","Graduate","Post-Graduate","Professional" };
         }
     }
 }

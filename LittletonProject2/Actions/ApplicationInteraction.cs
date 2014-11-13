@@ -11,11 +11,10 @@ namespace LittletonProject2.Actions
     {
         public Guid SaveApplication(string Application)
         {
+            ApplyModelContext amc = new ApplyModelContext();
             var appmodel = new ApplyModel();
             
             appmodel.ApplicationData = Application;
-
-            ApplyModelContext amc = new ApplyModelContext();
 
             amc.ApplyModels.Add(appmodel);
             amc.SaveChanges();

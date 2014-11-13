@@ -175,10 +175,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201411130234540_init.cs" />
-    <Compile Include="Migrations\201411130234540_init.Designer.cs">
-      <DependentUpon>201411130234540_init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -262,7 +258,9 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="ViewControllers\Apply.js" />
     <Content Include="ViewModels\ApplyViewModel.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -307,11 +305,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411130234540_init.resx">
-      <DependentUpon>201411130234540_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
