@@ -9,12 +9,10 @@ namespace LittletonProject2.Actions
 {
     public class ApplicationInteraction
     {
-        public string SaveApplication(string Application)
+        public Guid SaveApplication(string Application)
         {
             var appmodel = new ApplyModel();
-            string id = new Utilities().RandStr(16);
-
-            appmodel.id = id;
+            
             appmodel.ApplicationData = Application;
 
             ApplyModelContext amc = new ApplyModelContext();
@@ -22,10 +20,10 @@ namespace LittletonProject2.Actions
             amc.ApplyModels.Add(appmodel);
             amc.SaveChanges();
 
-            return id;
+            return appmodel.id;
         }
 
-        public string LoadApplication(string id)
+        public String LoadApplication(Guid id)
         {
             return new ApplyModelContext().ApplyModels.Find(id).ApplicationData;
         }

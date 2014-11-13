@@ -1,4 +1,5 @@
 ﻿using LittletonProject2.Actions;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,7 +32,7 @@ namespace LittletonProject2.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadData(string id)
+        public ActionResult LoadData(Guid id)
         {
             return Json(new ApplicationInteraction().LoadApplication(id), JsonRequestBehavior.AllowGet);
         }

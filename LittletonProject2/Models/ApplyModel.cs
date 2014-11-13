@@ -7,7 +7,7 @@ namespace LittletonProject2.Models
     public class ApplyModel
     {
         [Key]
-        public string id { get; set; }
+        public Guid id { get; set; }
         public string ApplicationData { get; set; }
     }
 

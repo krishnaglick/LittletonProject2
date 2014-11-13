@@ -22,7 +22,7 @@
     <li><a href="#view5">Education</a></li>
     <li>
         <div class="btn-group">
-            <button type="button" id="saveButton" class="btn btn-sm btn-primary submitButton">Save</button>
+            <button type="button" id="submit" class="btn btn-sm btn-primary submitButton">Save</button>
             <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
@@ -50,10 +50,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="firstName" data-bind="value: FirstName" required />
+                    <input type="text" id="firstName" data-bind="value: FirstName" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="lastName" data-bind="value: LastName" required />
+                    <input type="text" id="lastName" data-bind="value: LastName" required />
                 </div>
                 <div class="col-xs-2">
                     <input type="checkbox" id="over18" data-bind="checked: Over18" />
@@ -72,10 +72,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="streetAddress" data-bind="value: Street" required />
+                    <input type="text" id="streetAddress" data-bind="value: Street" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="City" data-bind="value: City" required />
+                    <input type="text" id="City" data-bind="value: City" required />
                 </div>
                 <div class="col-xs-2">
                     <select id="State" data-bind="options: listOfStates, value: State"></select>
@@ -91,10 +91,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="mobilePhone" data-bind="value: MobilePhone" required />
+                    <input type="text" id="mobilePhone" data-bind="value: MobilePhone" required />
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" class="form-control" id="homePhone" data-bind="value: HomePhone" />
+                    <input type="text" id="homePhone" data-bind="value: HomePhone" />
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="number" class="form-control" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable" required />
+                    <input type="number" id="hoursPerWeek" min="10" max="40" value="40" data-bind="value: HoursAvailable" required />
                 </div>
             </div>
 
@@ -198,7 +198,7 @@
                     </div>
                 </div>
                 <div class="col-xs-3">
-                    <input type="text" id="dateAvailableEmployment" class="datepicker form-control" value="Select Date..." maxlength="10" data-bind="value: DateAvailable" required />
+                    <input type="text" id="dateAvailableEmployment" class="datepicker" value="Select Date..." maxlength="10" data-bind="value: DateAvailable" required />
                 </div>
             </div>
         </div>
@@ -477,7 +477,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
-                            <input type="number" class="form-control" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100" required />
+                            <input type="number" id="yearsInMilitary" class="form-control" data-bind="value: militaryYears" min="1" max="100" required />
                         </div>
                         <div class="col-xs-3">
                             <select id="militaryBranch" class="form-control" data-bind="options: militaryBranches, value: militaryBranch"></select>
@@ -602,7 +602,7 @@
                             <select id="schoolType" class="form-control" data-bind="options: schoolTypes, value: schoolType"></select>
                         </div>
                         <div class="col-xs-4">
-                            <input type="text" id="schoolName" class="form-control" data-bind="value: schoolName" />
+                            <input id="schoolName" class="form-control" data-bind="value: schoolName" type="text" />
                         </div>
                     </div>
                     <div class="row">
@@ -648,48 +648,27 @@
 </div>
 
 <!--Application Submission Modal-->
-<div id="applicationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Application Terms</h4>
-            </div>
-            <div class="modal-body">
-                <p>TO GET A JOB WITH US, I AGREE THAT:</p>
-                <p>IF UNFINISHED BUSINESS LOOKS AT YOUR JOB APPLICATION OR OFFERS YOU A JOB, IT WILL NOT MEAN THAT YOU WILL BE HIRED. IF YOU ARE HIRED IT DOES NOT MEAN IT IS PERMANENT UNLESS OUR PRESIDENT/MANAGER SAYS IT IS. WE CAN END YOUR EMPLOYMENT AT ANY TIME WITHOUT NOTICE. IF WE DO HIRE YOU, THE RULES/POLICIES MAY CHANGE</p>
-                <p>I ALLOW UNFINISHED BUSINESS TO CHECK ALL INFO I PUT ON THIS APPLICATION. IF I AM DISHONEST IT CAN KEEP ME FROM GETTING THE JOB. I ALLOW YOU TO SPEAK WITH MY SCHOOL, PREVIOUS BOSSES, AND REFERENCES. I AGREE THAT UNFINISHED BUSINESS WILL NOT GET IN TROUBLE FOR TALKING TO THEM FOR THIS REASON.</p>
-                <p>I AGREE TO GET DRUG TESTED BEFORE AND AFTER I GET THE JOB. IF I DO NOT GET DRUG TESTED I WILL NOT GET THE JOB. IF I FAIL THE DRUG TEST I WILL LOSE MY JOB.</p>
-                <p>I UNDERSTAND THAT MY CREDIT, CHARACTER, AND REPUTATION WILL BE LOOKED AT BEFORE GETTING THE JOB. IF UNFINISHED BUSINESS FINDS ANYTHING THAT WE DO NOT LIKE, WE WILL HAVE YOU EXPLAIN IT TO US AS REQUIRED BY THE FAIR CREDIT REPORTING ACT.</p>
-                <p>DURING THE FIRST 60 DAYS ON THE JOB, WE CAN END YOUR EMPLOYMENT WITHOUT ANY REASON. YOU CAN ALSO LEAVE THE JOB DURING THE FIRST 60 DAYS WITHOUT ANY REASON.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" id="submitAppButton" class="btn btn-primary" data-dismiss="modal">Accept</button>
-            </div>
-        </div>
-    </div>
-</div>
+    <div id="applicationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Application Terms</h4>
+                </div>
+                <div class="modal-body">
+                    <p>TO SUBMIT THE APPLICATION, I AGREE THAT:</p>
+                    <p>If Unfinished Business looks at your job application or offers you a job, it will not mean that you will be hired. If you are hired it does not mean it is permanent unless our president/manager says it is. We can also end your employment at any time without notice and if we do hire you, the rules/policies may change.</p>
+                    <p>I allow Unfinished Business to check all info i put on this application and if I’m dishonest it can keep me from getting the job. I allow you to speak with my school, previous bosses, and references and agree that unfinished business will not get in trouble for talking to them for this reason.</p>
+                    <p>I agree to get drug tested before and after I get the job. If I do not get drug tested I will not be considered for the job. If I fail the drug test I will lose my job.</p>
+                    <p>I understand that my credit, character, and reputation will be looked at before getting the job. If Unfinished Business finds anything in the report that we do not like, we will have you explain it to us as required by the fair credit reporting act.</p>
+                    <p>During the first 60 days on the job, we can end your employment without any reason. You can also leave the job during the first 60 days without any reason.</p>
 
-<!--Load Application Modal-->
-<div id="loadApplicationModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Load Application</h4>
-            </div>
-            <div class="modal-body">
-                <div>Please insert your application id</div>
-                <div>
-                    <input type="text" id="loadKey" class="form-control" placeholder="Application ID" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="submitAppButton" class="btn btn-primary" data-dismiss="modal">Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" id="loadButtonModal" class="btn btn-primary" data-dismiss="modal">Load</button>
-            </div>
         </div>
     </div>
-</div>
 
