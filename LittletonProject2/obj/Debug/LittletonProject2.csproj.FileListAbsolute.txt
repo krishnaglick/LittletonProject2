@@ -163,3 +163,5 @@ C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\Litt
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csprojResolveAssemblyReference.cache
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.dll
 C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.pdb
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.Migrations.init.resources
+C:\Users\Prometheus\Documents\Visual Studio 2013\Projects\LittletonProject2\LittletonProject2\obj\Debug\LittletonProject2.csproj.GenerateResource.Cache

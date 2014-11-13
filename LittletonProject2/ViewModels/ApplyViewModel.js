@@ -61,7 +61,7 @@
         $('div.dates input:button[value="Sun"]').toggleClass('round-button-selected', self.availableSunday());
     });
 
-    this.allAvailableTracker = ko.observable(false);
+    this.allAvailableTracker = ko.observable(true);
     this.allAvailable = function () {
         self.availableMonday(self.allAvailableTracker());
         self.availableTuesday(self.allAvailableTracker());

@@ -27,5 +27,15 @@ namespace LittletonProject2.Actions
         {
             return new ApplyModelContext().ApplyModels.Find(id).ApplicationData;
         }
+
+        public void DeleteApplication(Guid id)
+        {
+            new ApplyModelContext().ApplyModels.Remove(new ApplyModelContext().ApplyModels.Find(id));
+        }
+
+        public void DeleteApplications()
+        {
+            new ApplyModelContext().ApplyModels.RemoveRange(new ApplyModelContext().ApplyModels.ToList());
+        }
     }
 }

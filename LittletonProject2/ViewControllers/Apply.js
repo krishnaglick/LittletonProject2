@@ -82,23 +82,6 @@ $(function () {
             alert("Your application id is: " + data
               + ". Please keep this in your records.");
         });
-
-        /*var Application = ko.toJSON(apply_view_model);
-        
-        $.ajax({
-            type: "POST",
-            url: '/Apply/SaveData',
-            dataType: "JSON",
-            contentType: 'application/json; charset=utf-8',
-            data: {'Application': Application},
-            success: function (data) {
-                alert("Your application id is: " + data
-                  + ". Please keep this in your records.");
-            },
-            error: function (data) {
-                alert("Failure, please alert sysadmin.");
-            }
-        });*/
     })
 
     //Load Button
