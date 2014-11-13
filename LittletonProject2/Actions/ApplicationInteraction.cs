@@ -27,7 +27,7 @@ namespace LittletonProject2.Actions
 
         public string LoadApplication(string id)
         {
-            return new ApplyModelContext().ApplyModels.Where(a => a.id == id).ToList()[0].ApplicationData;
+            return new ApplyModelContext().ApplyModels.Find(id).ApplicationData;
         }
     }
 }
