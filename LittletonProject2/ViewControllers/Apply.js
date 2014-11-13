@@ -14,28 +14,6 @@ $(function () {
         dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat']
     });
 
-    //Pick days of week you can work
-    /*$('.buttonDays').click(function () {
-        $(this).toggleClass('round-button-selected');
-        if ($(this).hasClass('round-button-selected'))
-            apply_view_model.DaysAvailable.push($(this).val());
-        else
-            apply_view_model.DaysAvailable.remove($(this).val());
-    });
-    var allTracker = true;
-    $('.selectAll').click(function () {
-        apply_view_model.DaysAvailable.removeAll();
-        if (allTracker) {
-            $('.buttonDays').addClass('round-button-selected');
-            allTracker = false;
-            apply_view_model.DaysAvailable.push("Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun");
-        }
-        else {
-            $('.buttonDays').removeClass('round-button-selected');
-            allTracker = true;
-        }
-    });*/
-
     //Setup modal popping up
     $('#addWorkExp').click(function () {
         $('#addWorkExpModal').modal();
@@ -49,74 +27,34 @@ $(function () {
     $('#addEducation').click(function () {
         $('#addEducationModal').modal();
     })
-    //Shows application terms modal 
-    $('#submit').click(function () {
+    //Show Save Modal 
+    $('#saveButton').click(function () {
         $('#applicationModal').modal();
     })
-
-    //Button toggling cause bootstrap don't do that shit on its own
-    $('#NightsYes').click(function () {
-        $('#NightsYes').addClass('active');
-        $('#NightsNo').removeClass('active');
-        apply_view_model.WorkNights(true);
-    })
-    $('#NightsNo').click(function () {
-        $('#NightsYes').removeClass('active');
-        $('#NightsNo').addClass('active');
-        apply_view_model.WorkNights(false);
-    })
-    $('#FiredYes').click(function () {
-        $('#FiredYes').addClass('active');
-        $('#FiredNo').removeClass('active');
-        apply_view_model.FiredBefore(true);
-    })
-    $('#FiredNo').click(function () {
-        $('#FiredYes').removeClass('active');
-        $('#FiredNo').addClass('active');
-        apply_view_model.FiredBefore(false);
+    //Show Load Modal
+    $('#loadButton').click(function () {
+        $('#loadApplicationModal').modal();
     })
     
-    //Submit Button
+    //Submit Modal Button
     $('#submitAppButton').click(function () {
         $.post("/Apply/SaveData", { 'Application': ko.toJSON(apply_view_model) }, function (data) {
             alert("Your application id is: " + data
               + ". Please keep this in your records.");
-        });
-
-        /*var Application = ko.toJSON(apply_view_model);
-        
-        $.ajax({
-            type: "POST",
-            url: '/Apply/SaveData',
-            dataType: "JSON",
-            contentType: 'application/json; charset=utf-8',
-            data: {'Application': Application},
-            success: function (data) {
-                alert("Your application id is: " + data
-                  + ". Please keep this in your records.");
-            },
-            error: function (data) {
-                alert("Failure, please alert sysadmin.");
-            }
-        });*/
-    })
-
-    //Load Button
-    $('#loadButton').click(function () {
-        $.ajax({
-            type: "POST",
-            url: '/Apply/LoadData',
-            dataType: "JSON",
-            data: "[1]",
-            success: function (data) {
-                alert("Your application id is: " + data
-                  + ". Please keep this in your records.");
-            },
-            error: function (data) {
-                alert("Failure, please alert sysadmin.");
-            }
+        }).error(function () {
+            alert('Error! Please alert your sysadmin!');
         });
     })
+
+    //Load Modal Button
+    $('#loadButtonModal').click(function () {
+        $.post("/Apply/LoadData", { 'id': $('#loadKey').val() }, function (data) {
+            alert("Application loaded, please feel free to continue editing!");
+            apply_view_model = data;
+        }).error(function () {
+            alert("There has been an error loading your application, please try again later.");
+        });
+    });
 
     applyValidation();
 
