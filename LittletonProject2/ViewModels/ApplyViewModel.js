@@ -1,5 +1,4 @@
 ﻿var ApplyViewModel = function () {
-    var self = this;
     //Stuff used from pullback
     this.listOfStates = ko.observableArray([]);
     this.militaryBranches = ko.observableArray([]);
@@ -22,27 +21,13 @@
 
     //Employment Info
     this.HoursAvailable = ko.observable(40);
-
     this.EmploymentType = ko.observable(true);
-    this.EmpTypeStling = ko.computed(function () {
-        $('#FullTime').toggleClass('active', self.EmploymentType());
-        $('#PartTime').toggleClass('active', !self.EmploymentType());
-    });
-
     this.WorkNights = ko.observable(true);
-    this.WorkNightsStyling = ko.computed(function () {
-        $('#NightsYes').toggleClass('active', self.WorkNights());
-        $('#NightsNo').toggleClass('active', !self.WorkNights());
-    });
-
     this.FiredBefore = ko.observable(false);
-    this.FiredBeforeStyling = ko.computed(function () {
-        $('#FiredYes').toggleClass('active', self.FiredBefore());
-        $('#FiredNo').toggleClass('active', !self.FiredBefore());
-    });
-
     this.DateAvailable = ko.observable('');
 
+    //Days Available to Work
+    this.allAvailableTracker = ko.observable(false);
     this.availableMonday = ko.observable(false);
     this.availableTuesday = ko.observable(false);
     this.availableWednesday = ko.observable(false);
@@ -50,18 +35,6 @@
     this.availableFriday = ko.observable(false);
     this.availableSaturday = ko.observable(false);
     this.availableSunday = ko.observable(false);
-
-    this.daysAvailable = ko.computed(function () {
-        $('div.dates input:button[value="Mon"]').toggleClass('round-button-selected', self.availableMonday());
-        $('div.dates input:button[value="Tue"]').toggleClass('round-button-selected', self.availableTuesday());
-        $('div.dates input:button[value="Wed"]').toggleClass('round-button-selected', self.availableWednesday());
-        $('div.dates input:button[value="Thr"]').toggleClass('round-button-selected', self.availableThursday());
-        $('div.dates input:button[value="Fri"]').toggleClass('round-button-selected', self.availableFriday());
-        $('div.dates input:button[value="Sat"]').toggleClass('round-button-selected', self.availableSaturday());
-        $('div.dates input:button[value="Sun"]').toggleClass('round-button-selected', self.availableSunday());
-    });
-
-    this.allAvailableTracker = ko.observable(false);
 
     //Military Modal
     this.militaryYears = ko.observable('');

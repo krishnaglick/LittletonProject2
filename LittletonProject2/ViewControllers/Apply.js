@@ -2,11 +2,12 @@
 var apply_view_model = new ApplyViewModel();
 $(function () {
     //Set up the viewmodel
-    ko.applyBindings(apply_view_model, $('.koNode')[0]);
+    ko.applyBindings(apply_view_model);
     getStates();
     getMilitaryBranches();
     getSchoolTypes();
     applySubscriptions();
+    //applyValidation();
 
     //Activate the datepicker!
     $('.datepicker').datepicker({
@@ -51,16 +52,12 @@ $(function () {
     //Load Modal Button
     $('#loadApp').click(function () {
         $.post("/Apply/LoadData", { 'id': $('#appKey').val() }, function (data) {
-            apply_view_model = ko.mapping.fromJSON(data, apply_view_model);
-            ko.cleanNode($('.koNode')[0]);
-            ko.applyBindings(apply_view_model, $('.koNode')[0])
+            loadNewViewModel(JSON.parse(data));
             alert("Your application was loaded successfully, continue it at your leisure!");
         }).error(function () {
             alert("Application failed to load, please check your id.");
         });
     })
-
-    applyValidation();
 
     //Clear out modals when they close
     $('.modal').on('hidden.bs.modal, show.bs.modal', function () {
@@ -115,11 +112,11 @@ $(function () {
 
 
     $('#saveWorkExp').click(function () {
-        /*if ($('#addWorkExpModal').find(':invalid').length > 0)
+        if ($('#addWorkExpModal').find(':invalid').length > 0)
             return false;
 
         if (!(checkDates(apply_view_model.employerStartDate(), apply_view_model.employerEndDate())))
-            return false;*/
+            return false;
 
         apply_view_model.employers.push({
             name: apply_view_model.employerName(),
@@ -238,18 +235,42 @@ function applyValidation() {
 }
 
 function applySubscriptions() {
-    apply_view_model.allAvailableTracker.subscribe(function () {
-        apply_view_model.availableMonday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableTuesday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableWednesday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableThursday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableFriday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableSaturday(apply_view_model.allAvailableTracker());
-        apply_view_model.availableSunday(apply_view_model.allAvailableTracker());
-        apply_view_model.allAvailableTracker(!apply_view_model.allAvailableTracker());
+    apply_view_model.FiredBefore.subscribe(function () {
+        $('#FiredYes').toggleClass('active', apply_view_model.FiredBefore());
+        $('#FiredNo').toggleClass('active', !apply_view_model.FiredBefore());
     });
-}
+    apply_view_model.WorkNights.subscribe(function () {
+        $('#NightsYes').toggleClass('active', apply_view_model.WorkNights());
+        $('#NightsNo').toggleClass('active', !apply_view_model.WorkNights());
+    });
 
+    apply_view_model.EmploymentType.subscribe(function () {
+        $('#FullTime').toggleClass('active', apply_view_model.EmploymentType());
+        $('#PartTime').toggleClass('active', !apply_view_model.EmploymentType());
+    });
+
+    apply_view_model.availableMonday.subscribe(function () {
+        $('input.buttonDays[value="Mon"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableTuesday.subscribe(function () {
+        $('input.buttonDays[value="Tue"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableWednesday.subscribe(function () {
+        $('input.buttonDays[value="Wed"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableThursday.subscribe(function() {
+        $('input.buttonDays[value="Thr"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableFriday.subscribe(function() {
+        $('input.buttonDays[value="Fri"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableSaturday.subscribe(function() {
+        $('input.buttonDays[value="Sat"]').toggleClass('round-button-selected');
+    })
+    apply_view_model.availableSunday.subscribe(function() {
+        $('input.buttonDays[value="Sun"]').toggleClass('round-button-selected');
+    })
+}
 
 function removeEmployer(data) {
     apply_view_model.employers.remove(data);
@@ -262,4 +283,78 @@ function removeReference(data) {
 }
 function removeEducation(data) {
     apply_view_model.education.remove(data);
+}
+
+var daysToggled = true;
+function toggleDaysAvail() {
+    apply_view_model.availableMonday(daysToggled);
+    apply_view_model.availableTuesday(daysToggled);
+    apply_view_model.availableWednesday(daysToggled);
+    apply_view_model.availableThursday(daysToggled);
+    apply_view_model.availableFriday(daysToggled);
+    apply_view_model.availableSaturday(daysToggled);
+    apply_view_model.availableSunday(daysToggled);
+    daysToggled = !daysToggled;
+}
+
+function loadNewViewModel(data) {
+    apply_view_model.City(data.City);
+    apply_view_model.DateAvailable(data.DateAvailable);
+    apply_view_model.EmploymentType(data.EmploymentType);
+    apply_view_model.FiredBefore(data.FiredBefore);
+    apply_view_model.FirstName(data.FirstName);
+    apply_view_model.HomePhone(data.HomePhone);
+    apply_view_model.HoursAvailable(data.HoursAvailable);
+    apply_view_model.LastName(data.LastName);
+    apply_view_model.MobilePhone(data.MobilePhone);
+    apply_view_model.Over18(data.Over18);
+    apply_view_model.State(data.State);
+    apply_view_model.Street(data.Street);
+    apply_view_model.WorkNights(data.WorkNights);
+    apply_view_model.allAvailableTracker(data.allAvailableTracker);
+    apply_view_model.availableFriday(data.availableFriday);
+    apply_view_model.availableMonday(data.availableMonday);
+    apply_view_model.availableSaturday(data.availableSaturday);
+    apply_view_model.availableSunday(data.availableSunday);
+    apply_view_model.availableThursday(data.availableThursday);
+    apply_view_model.availableTuesday(data.availableTuesday);
+    apply_view_model.availableWednesday(data.availableWednesday);
+    apply_view_model.education(data.education);
+    apply_view_model.employerCanContact(data.employerCanContact);
+    apply_view_model.employerCity(data.employerCity);
+    apply_view_model.employerDuties(data.employerDuties);
+    apply_view_model.employerEmail(data.employerEmail);
+    apply_view_model.employerEndDate(data.employerEndDate);
+    apply_view_model.employerName(data.employerName);
+    apply_view_model.employerPhone(data.employerPhone);
+    apply_view_model.employerPrevBoss(data.employerPrevBoss);
+    apply_view_model.employerStartDate(data.employerStartDate);
+    apply_view_model.employerState(data.employerState);
+    apply_view_model.employerStreet(data.employerStreet);
+    apply_view_model.employers(data.employers);
+    apply_view_model.graduationDate(data.graduationDate);
+    apply_view_model.honorableDischarge(data.honorableDischarge);
+    apply_view_model.inReserve(data.inReserve);
+    apply_view_model.listOfStates(data.listOfStates);
+    apply_view_model.majorDegCert(data.majorDegCert);
+    apply_view_model.militaryBranch(data.militaryBranch);
+    apply_view_model.militaryBranches(data.militaryBranches);
+    apply_view_model.militaryExp(data.militaryExp);
+    apply_view_model.militaryYears(data.militaryYears);
+    apply_view_model.referenceCity(data.referenceCity);
+    apply_view_model.referenceCompany(data.referenceCompany);
+    apply_view_model.referenceEmail(data.referenceEmail);
+    apply_view_model.referenceName(data.referenceName);
+    apply_view_model.referencePhone(data.referencePhone);
+    apply_view_model.referenceState(data.referenceState);
+    apply_view_model.referenceStreet(data.referenceStreet);
+    apply_view_model.referenceTitle(data.referenceTitle);
+    apply_view_model.references(data.references);
+    apply_view_model.schoolCity(data.schoolCity);
+    apply_view_model.schoolName(data.schoolName);
+    apply_view_model.schoolState(data.schoolState);
+    apply_view_model.schoolType(data.schoolType);
+    apply_view_model.schoolTypes(data.schoolTypes);
+
+
 }
